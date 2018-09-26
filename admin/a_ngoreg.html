@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+	 <!-- START CONTENT -->
+	
+		<div class="container">
+          <div class="section">
+				<div class="section">
+				<div class="row">
+            <div class="col s12 m12 l12">
+              <div class="card-panel">
+                <h4 class="header2">NGO KYC Document Upload</h4>
+                <div class="row">
+                  <form class="col s12">
+					 <div class="row">
+					 <div class="file-field input-field col s6">
+					 <label>Proof of Registration</label>
+					 </div>
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                          <span>Browse</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="kyc document">
+                        </div>
+                      </div>
+                    </div>
+					<div class="row">
+					<div class="file-field input-field col s6">
+					 <label>PAN Card of the NGO</label>
+					 </div>
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                          <span>Browse</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="kyc document">
+                        </div>
+                      </div>
+                    </div>
+					<div class="row">
+					<div class="file-field input-field col s6">
+					 <label>Latest Audited Balance Sheet</label>
+					 </div>
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                          <span>Browse</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="kyc document">
+                        </div>
+                      </div>
+                    </div>
+					<div class="row">
+					<div class="file-field input-field col s6">
+					 <label>Form 12-A for IT Exemption</label>
+					 </div>
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                          <span>Browse</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="kyc document">
+                        </div>
+                      </div>
+                    </div>
+					<div class="row">
+					<div class="file-field input-field col s6">
+					 <label>FCRA registration if applicable</label>
+					 </div>
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                          <span>Browse</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="kyc document">
+                        </div>
+                      </div>
+                    </div>
+					
+					 <div class="row">
+                        <div class="input-field col s12">
+                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                          </button>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+				</div>
+			</div>
+		</div>
+
+	<!-- END CONTENT -->
+			
+			
+			<!-- //////////////////////////////////////////////////////////////////////////// -->
+            <!-- START RIGHT SIDEBAR NAV-->
+<aside id="right-sidebar-nav">
+	    </aside>
+		  <!-- END RIGHT SIDEBAR NAV-->
+		<!-- //////////////////////////////////////////////////////////////////////////// -->
+          <!-- data-tables -->
+    <script type="text/javascript" src="js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/data-tables/data-tables-script.js"></script>
+	 <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript">
+        /*Show entries on click hide*/
+        $(document).ready(function(){
+            $(".dropdown-content.select-dropdown li").on( "click", function() {
+                var that = this;
+                setTimeout(function(){
+                if($(that).parent().hasClass('active')){
+                        $(that).parent().removeClass('active');
+                        $(that).parent().hide();
+                }
+                },100);
+            });
+        });
+    </script>
