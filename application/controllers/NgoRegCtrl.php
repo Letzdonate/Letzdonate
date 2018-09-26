@@ -250,4 +250,8 @@ class NgoRegCtrl extends CI_Controller
             $this->NgoModel->ngo_doc_upload_status($doc_status, $ngoid);
         }
     }
+    public function testssf()
+    {
+
+    }
 }
