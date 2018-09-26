@@ -12,7 +12,13 @@ class NgoModel extends CI_Model	 {
 		$insert_id = $this->db->insert_id();
 		return $insert_id;
 	}
-	
+	function ngoupdate($data,$id)
+	{
+		$this->db->where('id', $id);
+		$this->db->update('ngo_details',$data);
+		$affected_rows = $this->db->affected_rows();
+		return $affected_rows;
+	}
 	 function doc_upload($data)
 	{ 
 		$this->db->insert('ngo_doc_upload',$data);
@@ -26,6 +32,13 @@ class NgoModel extends CI_Model	 {
 		$affected_rows = $this->db->affected_rows();
 		return $affected_rows;
 	}
+	function get_ngo_list()
+	{
+		$query='select * from ngo_details';
+		return $this->db->query($query)->result();	
+	}
+	
+	
 	
 }
 ?>

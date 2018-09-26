@@ -15,7 +15,7 @@
                   <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                     <thead>
                         <tr>
-						<th>View</th>
+							<th>View</th>
                             <th>NGO Name</th> 
                             <th>Email</th>
                             <th>Phone</th>
@@ -27,7 +27,7 @@
                     <tfoot>
                         <tr>
 							<th>View</th>
-                             <th>NGO Name</th> 
+                            <th>NGO Name</th> 
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Contact Person</th>
@@ -36,31 +36,17 @@
                     </tfoot>
                  
                     <tbody>
+					<?php foreach($get_ngo_list as $ngo_list): ?>
                         <tr>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-                           <td>Rotary club of nanganallur</td>
-							<td>rcnanganallur@gmail.com</td>
-							<td>9874563210</td>
-							<td>JOHN</td>
-							<td>7896541230</td>
+							<td class="center-align"><a href="<?php echo base_url('index.php/NgoRegCtrl/ngoreg_view/'.$ngo_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
+							<td><?=$ngo_list->ngo_name; ?></td>
+							<td><?=$ngo_list->email; ?></td>
+							<td><?=$ngo_list->phone; ?></td>
+							<td><?=$ngo_list->contact_person; ?></td>
+							<td><?=$ngo_list->contact_person_phone; ?></td>
 							
                         </tr>
-						 <tr>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-                            <td>Lions club of nanganallur</td>
-							<td>lcnanganallur@gmail.com</td>
-							<td>9874563212</td>
-							<td>PETER</td>
-							<td>7896541584</td>
-                        </tr>
-						<tr>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-                            <td>Smile India</td>
-							<td>smileindia@gmail.com</td>
-							<td>9874012365</td>
-							<td>DEXTER</td>
-							<td>8056054814</td>
-                        </tr>
+						<?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>

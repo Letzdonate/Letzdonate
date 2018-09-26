@@ -10,36 +10,31 @@
                   <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                     <thead>
                         <tr>
-						    <th>Category Name</th> 
-                            <th>View</th>
+						    <th>View</th>
                             <th>Delete</th>
+                            <th>Category Name</th>
+						    <th>Status</th>
                         </tr>
                     </thead>
                  
                     <tfoot>
                         <tr>
-							<th>Category Name</th> 
-                            <th>View</th>
+							<th>View</th>
                             <th>Delete</th>
+                            <th>Category Name</th>
+						    <th>Status</th>
                         </tr>
                     </tfoot>
                  
                     <tbody>
+                        <?php foreach($get_categ_list as $categ_list): ?>
                         <tr>
-							<td>Education</td>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-							<td class="center-align"><a href="#"><i class="mdi-action-delete"></i></a></td>
+							<td class="center-align"><a href="<?php echo base_url('index.php/CategoryCtrl/categ_view/'.$categ_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
+							<td class="center-align"><a onclick="return confirm('Are You Sure, Want To Delete The Category Permanently');" href="<?php echo base_url('index.php/CategoryCtrl/categ_delete/'.$categ_list->id); ?>"><i class="mdi-action-delete"></i></a></td>
+							<td><?=$categ_list->categ_name; ?></td>
+							<td><?=$categ_list->status; ?></td>
                         </tr>
-						 <tr>
-							<td>Medical</td>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-							<td class="center-align"><a href="#"><i class="mdi-action-delete"></i></a></td>
-                        </tr>
-						<tr>
-							<td>Hunger</td>
-							<td class="center-align"><a href="#"><i class="mdi-action-visibility"></i></a></td>
-							<td class="center-align"><a href="#"><i class="mdi-action-delete"></i></a></td>
-                        </tr>
+						<?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
