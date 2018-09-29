@@ -18,6 +18,12 @@ class CategoryModel extends CI_Model
         $query='select * from categ_master';
 		return $this->db->query($query)->result();	
     }
+    public function update_categ_list(){
+        $this->db->where('id', $id);
+		$this->db->update('categ_master',$data);
+		$affected_rows = $this->db->affected_rows();
+		return $affected_rows;
+    }
     public function del_categ_list($id){
         $this->db->delete('categ_master', array('id' => $id));
     }

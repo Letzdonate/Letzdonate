@@ -14,7 +14,7 @@
     <div class="col s12 z-depth-4 card-panel">
      
 	  
-	   <?php echo form_open('Welcome/login'); ?>
+	   <?php echo form_open('LoginCtrl/login'); ?>
         <div class="row">
           <div class="input-field col s12 center">
             <img src="<?php echo base_url();?>application/images/whatsapp-logo1.png" style="width:100%" alt="" class="responsive-img valign profile-image-login">

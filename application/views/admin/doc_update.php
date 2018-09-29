@@ -12,7 +12,7 @@
               <div class="card-panel">
                 <h4 class="header2">NGO KYC Document Upload</h4>
                 <div class="row">
-                   <?php echo form_open_multipart('NgoRegCtrl/insert_docs'); ?>
+                   <?php echo form_open_multipart('NgoRegCtrl/test_insert'); ?>
 					 <div class="row">
 					 <div class="file-field input-field col s4">
 					 <label>Proof of Registration</label>
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                     </div>
-					<input style="display:none" type="text" name="userid" value="<?php echo $id ?>"/>
+					<input style="display:none;"type="text" name="userid" value="<?php echo $id ?>"/>
 					 <div class="row">
                         <div class="input-field col s12">
                           <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit

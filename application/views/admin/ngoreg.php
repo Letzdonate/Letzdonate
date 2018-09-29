@@ -18,7 +18,7 @@
                    <?php echo form_open_multipart('NgoRegCtrl/ngoreg_insert_update/'.$id); ?>
                     <div class="row">
                       <div class="input-field col s6">
-                        <input id="ngo_name" type="text" name="ngo_name" value = "<?php echo $ngo_insert_update['ngo_name'];?>">
+                        <input id="ngo_name" type="text" name="ngo_name" value = "<?php echo $ngo_insert_update['name'];?>">
                         <label for="ngo_name">Organisation Name</label>
 						<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('ngo_name'); ?></span>
                       </div>
@@ -139,6 +139,20 @@
                       </div>
 					  <span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('kycdoc');?></span>
                     </div>
+					<br>
+					 <div class="row">
+                      <div class="input-field col s4">
+                    <select name="status">
+                      <option value="" disabled >--Select--</option>
+                      <option value="Active"<?php if($ngo_insert_update['status']=="Active") echo 'selected="selected"'; ?>>Approved</option>
+					  <option value="Inactive"<?php if($ngo_insert_update['status']=="Inactive") echo 'selected="selected"'; ?>>Inactive</option>
+                      <option value="Pending"<?php if($ngo_insert_update['status']=="Pending") echo 'selected="selected"'; ?>>Pending</option>
+                      <option value="Hold"<?php if($ngo_insert_update['status']=="Hold") echo 'selected="selected"'; ?>>Hold</option>
+                    </select>
+                    <label>Status</label>
+                  </div>
+                    
+                    </div>
 					 <div class="row">
                         <div class="input-field col s12">
                           <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
@@ -156,7 +170,7 @@
 			<?php if($id != ""){?>
 			 <div class="section">
 				 <div id="striped-table">
-              <h4 class="header">KYC Document List</h4><a href="<?php echo base_url('index.php/NgoRegCtrl/view_docs/'.$id); ?>"><i class="mdi-action-visibility"></i></a>
+              <h4 class="header">KYC Document List</h4><a href="<?php echo base_url('index.php/NgoRegCtrl/test/'.$id); ?>"><i class="mdi-content-create"></i></a>
               <div class="row">
                 <div class="col s12 m12">
                   <table class="striped" cellspacing="0">

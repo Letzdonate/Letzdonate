@@ -30,21 +30,19 @@ class CategoryCtrl extends CI_Controller
         $this->load->view('slider');
         $this->load->model('CategoryModel');
     }
-    public function categ_view($id=false)
+    public function categ_view($id = false)
     {
-        if($id == ""){
-			$data['id']="";
-			$data['categ_insert_update']=array(
-				'categ_name'=>"",
-				'categ_desc'=>"",
-			);
-		}
-		else
-		{
-			$data['id']=$id;
-			$data['categ_insert_update']=$this->db->get_where('categ_master', array('id'=> $id))->row_array();
-		}
-         $this->load->view('Admin/categ_entry', $data);
+        if ($id == "") {
+            $data['id'] = "";
+            $data['categ_insert_update'] = array(
+                'categ_name' => "",
+                'categ_desc' => "",
+            );
+        } else {
+            $data['id'] = $id;
+            $data['categ_insert_update'] = $this->db->get_where('categ_master', array('id' => $id))->row_array();
+        }
+        $this->load->view('Admin/categ_entry', $data);
     }
     public function categ_insert_update()
     {
@@ -57,20 +55,31 @@ class CategoryCtrl extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('Admin/categ_entry');
         } else {
-            $data['categinsert'] = array
-                (
-                'categ_name' => $this->input->post('categ_name'),
-                'categ_desc' => $this->input->post('categ_desc'),
-                'status' => 'Active',
-                'log' => $log,
-            );
-            $insert_id = $this->CategoryModel->categinsert($data['categinsert']);
-            if ($insert_id) {
-                $this->session->set_flashdata('msg', "1");
-                $this->load->view('Admin/categ_entry', $data);
+            if ($id == "") {
+                $data['categinsert'] = array
+                    (
+                    'categ_name' => $this->input->post('categ_name'),
+                    'categ_desc' => $this->input->post('categ_desc'),
+                    'status' => 'Active',
+                    'log' => $log,
+                );
+                $insert_id = $this->CategoryModel->categinsert($data['categinsert']);
+                if ($insert_id) {
+                    $this->session->set_flashdata('msg', "1");
+                    $this->load->view('Admin/categ_entry', $data);
+                } else {
+                    $this->session->set_flashdata('msg', "0");
+                    $this->load->view('Admin/categ_entry', $data);
+                }
             } else {
-                $this->session->set_flashdata('msg', "0");
-                $this->load->view('Admin/categ_entry', $data);
+                $affected_rows = $this->CategoryModel->update_categ_list($data['ngo_insert_update'], $id);
+                if ($affected_rows) {
+                    $this->session->set_flashdata('msg', "1");
+                    $this->load->view('Admin/categ_entry', $data);
+                } else {
+                    $this->session->set_flashdata('msg', "0");
+                    $this->load->view('Admin/categ_entry', $data);
+                }
             }
         }
     }
@@ -79,7 +88,8 @@ class CategoryCtrl extends CI_Controller
         $data['get_categ_list'] = $this->CategoryModel->get_categ_list();
         $this->load->view('Admin/categ_list', $data);
     }
-    public function categ_delete($id=false){
+    public function categ_delete($id = false)
+    {
         $data['del_categ_list'] = $this->CategoryModel->del_categ_list($id);
         $data['get_categ_list'] = $this->CategoryModel->get_categ_list();
         $this->load->view('Admin/categ_list', $data);
