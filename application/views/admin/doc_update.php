@@ -12,7 +12,7 @@
               <div class="card-panel">
                 <h4 class="header2">NGO KYC Document Upload</h4>
                 <div class="row">
-                   <?php echo form_open_multipart('NgoRegCtrl/test_insert'); ?>
+                   <?php echo form_open_multipart('NgoRegCtrl/ngo_doc_insert_update'); ?>
 					 <div class="row">
 					 <div class="file-field input-field col s4">
 					 <label>Proof of Registration</label>

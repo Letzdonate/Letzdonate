@@ -49,12 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'LoginCtrl';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 /* Custom Redirect */
-$route['admin'] = 'Login/admin';
-$route['ngoreg'] = 'Redirect/ngo_reg';
-$route['categentry'] = 'Redirect/categ_entry';
-$route['categlist'] = 'Redirect/categ_list';
+$route['admin'] = 'LoginCtrl/index';
+$route['logout'] = 'LoginCtrl/logout';
+$route['ngoreg'] = 'NgoRegCtrl/ngoreg_view';
+$route['categentry'] = 'CategoryCtrl/categ_view';
+$route['categlist'] = 'CategoryCtrl/categ_list';
 /* Custom Redirect */

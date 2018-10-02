@@ -32,6 +32,10 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_view($id = false)
     {
+        if (!$this->session->userdata('username'))
+        { 
+            redirect(base_url('admin'));
+        }
         if ($id == "") {
             $data['id'] = "";
             $data['categ_insert_update'] = array(
@@ -46,18 +50,21 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_insert_update($id = false)
     {
-        
+        if (!$this->session->userdata('username'))
+        { 
+            redirect(base_url('admin'));
+        }
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
-        if($id == ""){
+        if ($id == "") {
             $this->form_validation->set_rules('categ_name', 'Category Name', 'required|min_length[2]|max_length[255]|is_unique[categ_master.categ_name]');
-        }else{
+        } else {
             $this->form_validation->set_rules('categ_name', 'Category Name', 'required|min_length[2]|max_length[255]');
         }$this->form_validation->set_rules('categ_desc', 'Category Description', 'required|min_length[2]|max_length[500]');
         $now = new DateTime();
         $userName = "kumaran"; //$this->session->userdata('userName');
         $log = $userName . "_" . $now->format('Y-m-d H:i:s');
         $data['categ_insert_update'] = array
-        (
+            (
             'categ_desc' => $this->input->post('categ_desc'),
             'status' => 'Active',
             'log' => $log,
@@ -65,38 +72,46 @@ class CategoryCtrl extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['id'] = "";
-            $data['categ_insert_update']['categ_name']="";
-            $this->load->view('Admin/categ_entry',$data);
+            $data['categ_insert_update']['categ_name'] = "";
+            $this->load->view('Admin/categ_entry', $data);
         } else {
-            if($id == ""){
-                $data['categ_insert_update']['categ_name'] =  $this->input->post('categ_name');
+            if ($id == "") {
+                $data['categ_insert_update']['categ_name'] = $this->input->post('categ_name');
                 $insert_id = $this->CategoryModel->categinsert($data['categ_insert_update']);
                 if ($insert_id) {
                     $this->session->set_flashdata('msg', "1");
-                    $this->categ_view();
+                    redirect(base_url('categentry'), 'refresh');
                 } else {
                     $this->session->set_flashdata('msg', "0");
-                    $this->categ_view();
+                    redirect(base_url('categentry'), 'refresh');
                 }
-            } else{
-              $afftected_rows= $this->CategoryModel->update_categ_list($id,$data['categ_insert_update']);
+            } else {
+                $afftected_rows = $this->CategoryModel->update_categ_list($id, $data['categ_insert_update']);
                 if ($afftected_rows) {
-                   $this->session->set_flashdata('msg', "1");
-                  $this->categ_view();
+                    $this->session->set_flashdata('msg', "1");
+                    redirect(base_url('categentry'), 'refresh');
                 } else {
                     $this->session->set_flashdata('msg', "0");
-                  $this->categ_view();
+                    redirect(base_url('categentry'), 'refresh');
                 }
             }
         }
     }
     public function categ_list()
     {
+        if (!$this->session->userdata('username'))
+        { 
+            redirect(base_url('admin'));
+        }
         $data['get_categ_list'] = $this->CategoryModel->get_categ_list();
         $this->load->view('Admin/categ_list', $data);
     }
     public function categ_delete($id = false)
     {
+        if (!$this->session->userdata('username'))
+        { 
+            redirect(base_url('admin'));
+        }
         $data['del_categ_list'] = $this->CategoryModel->del_categ_list($id);
         $data['get_categ_list'] = $this->CategoryModel->get_categ_list();
         $this->load->view('Admin/categ_list', $data);

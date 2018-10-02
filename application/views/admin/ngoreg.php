@@ -170,7 +170,7 @@
 			<?php if($id != ""){?>
 			 <div class="section">
 				 <div id="striped-table">
-              <h4 class="header">KYC Document List</h4><a href="<?php echo base_url('index.php/NgoRegCtrl/test/'.$id); ?>"><i class="mdi-content-create"></i></a>
+              <h4 class="header">KYC Document List</h4><a href="<?php echo base_url('index.php/NgoRegCtrl/ngo_doc_view/'.$id); ?>"><i class="mdi-content-create"></i></a>
               <div class="row">
                 <div class="col s12 m12">
                   <table class="striped" cellspacing="0">
