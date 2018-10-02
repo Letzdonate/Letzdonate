@@ -2,7 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class CategoryModel extends CI_Model
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -18,7 +17,7 @@ class CategoryModel extends CI_Model
         $query='select * from categ_master';
 		return $this->db->query($query)->result();	
     }
-    public function update_categ_list(){
+    public function update_categ_list($id,$data){
         $this->db->where('id', $id);
 		$this->db->update('categ_master',$data);
 		$affected_rows = $this->db->affected_rows();

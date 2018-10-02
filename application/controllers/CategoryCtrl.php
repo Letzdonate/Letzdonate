@@ -44,41 +44,48 @@ class CategoryCtrl extends CI_Controller
         }
         $this->load->view('Admin/categ_entry', $data);
     }
-    public function categ_insert_update()
+    public function categ_insert_update($id = false)
     {
+        
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
-        $this->form_validation->set_rules('categ_name', 'Category Name', 'required|min_length[2]|max_length[255]|is_unique[categ_master.categ_name]');
-        $this->form_validation->set_rules('categ_desc', 'Category Description', 'required|min_length[2]|max_length[500]');
+        if($id == ""){
+            $this->form_validation->set_rules('categ_name', 'Category Name', 'required|min_length[2]|max_length[255]|is_unique[categ_master.categ_name]');
+        }else{
+            $this->form_validation->set_rules('categ_name', 'Category Name', 'required|min_length[2]|max_length[255]');
+        }$this->form_validation->set_rules('categ_desc', 'Category Description', 'required|min_length[2]|max_length[500]');
         $now = new DateTime();
         $userName = "kumaran"; //$this->session->userdata('userName');
         $log = $userName . "_" . $now->format('Y-m-d H:i:s');
+        $data['categ_insert_update'] = array
+        (
+            'categ_desc' => $this->input->post('categ_desc'),
+            'status' => 'Active',
+            'log' => $log,
+        );
+
         if ($this->form_validation->run() == false) {
-            $this->load->view('Admin/categ_entry');
+            $data['id'] = "";
+            $data['categ_insert_update']['categ_name']="";
+            $this->load->view('Admin/categ_entry',$data);
         } else {
-            if ($id == "") {
-                $data['categinsert'] = array
-                    (
-                    'categ_name' => $this->input->post('categ_name'),
-                    'categ_desc' => $this->input->post('categ_desc'),
-                    'status' => 'Active',
-                    'log' => $log,
-                );
-                $insert_id = $this->CategoryModel->categinsert($data['categinsert']);
+            if($id == ""){
+                $data['categ_insert_update']['categ_name'] =  $this->input->post('categ_name');
+                $insert_id = $this->CategoryModel->categinsert($data['categ_insert_update']);
                 if ($insert_id) {
                     $this->session->set_flashdata('msg', "1");
-                    $this->load->view('Admin/categ_entry', $data);
+                    $this->categ_view();
                 } else {
                     $this->session->set_flashdata('msg', "0");
-                    $this->load->view('Admin/categ_entry', $data);
+                    $this->categ_view();
                 }
-            } else {
-                $affected_rows = $this->CategoryModel->update_categ_list($data['ngo_insert_update'], $id);
-                if ($affected_rows) {
-                    $this->session->set_flashdata('msg', "1");
-                    $this->load->view('Admin/categ_entry', $data);
+            } else{
+              $afftected_rows= $this->CategoryModel->update_categ_list($id,$data['categ_insert_update']);
+                if ($afftected_rows) {
+                   $this->session->set_flashdata('msg', "1");
+                  $this->categ_view();
                 } else {
                     $this->session->set_flashdata('msg', "0");
-                    $this->load->view('Admin/categ_entry', $data);
+                  $this->categ_view();
                 }
             }
         }
