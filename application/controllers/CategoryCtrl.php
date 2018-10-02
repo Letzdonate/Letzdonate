@@ -44,7 +44,7 @@ class CategoryCtrl extends CI_Controller
         }
         $this->load->view('Admin/categ_entry', $data);
     }
-    public function categ_insert_update($id = false)
+    public function categ_insert_update($id = true)
     {
         
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
