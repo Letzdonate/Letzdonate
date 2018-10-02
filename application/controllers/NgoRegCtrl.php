@@ -21,8 +21,7 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngoreg_view($id = false)
     {
-		if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         if ($id == "") {
@@ -57,8 +56,7 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngoreg_insert_update($id = false)
     {
-		if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
@@ -164,8 +162,7 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngo_doc_view($id)
     {
-		if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $data['id'] = $id;
@@ -173,8 +170,7 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngo_doc_insert_update()
     {
-		if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $ngoid = $this->input->post('userid');
@@ -415,8 +411,7 @@ class NgoRegCtrl extends CI_Controller
     }
     public function get_ngo_list()
     {
-		if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $data['get_ngo_active_list'] = $this->db->get_where('user_table', array('status' => 'Active'))->result();

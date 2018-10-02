@@ -26,16 +26,16 @@
                 <?php }?>
                         <h4 class="header">Category Entry</h4>
                         <div class="row">
-                        <?php echo form_open('CategoryCtrl/categ_insert_update/'.$id); ?>
-                            
+                        <?php echo form_open('CategoryCtrl/categ_insert_update/' . $id); ?>
+
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="categ_name" value = "<?php echo $categ_insert_update['categ_name'];?>" name="categ_name" type="text" class="validate">
+                                    <input id="categ_name" value = "<?php echo $categ_insert_update['categ_name']; ?>" name="categ_name" type="text" class="validate">
                                     <label for="last_name">Category Name*</label>
                                     <span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('categ_name'); ?></span>
                                 </div>
                                     <div class="input-field col s6">
-                                    <input id="categ_desc" value = "<?php echo $categ_insert_update['categ_desc'];?>" name="categ_desc" type="text" maxlength="133" length="133">
+                                    <input id="categ_desc" value = "<?php echo $categ_insert_update['categ_desc']; ?>" name="categ_desc" type="text" maxlength="133" length="133">
                                     <label for="input_text">Description</label>
                                     <span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('categ_desc'); ?></span>
                                     </div>

@@ -32,8 +32,7 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_view($id = false)
     {
-        if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         if ($id == "") {
@@ -50,8 +49,7 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_insert_update($id = false)
     {
-        if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
@@ -99,8 +97,7 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_list()
     {
-        if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $data['get_categ_list'] = $this->CategoryModel->get_categ_list();
@@ -108,8 +105,7 @@ class CategoryCtrl extends CI_Controller
     }
     public function categ_delete($id = false)
     {
-        if (!$this->session->userdata('username'))
-        { 
+        if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
         }
         $data['del_categ_list'] = $this->CategoryModel->del_categ_list($id);
