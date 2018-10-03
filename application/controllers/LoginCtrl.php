@@ -97,6 +97,12 @@ class LoginCtrl extends CI_Controller
             redirect(base_url('forgotPassword'), 'refresh');
         }
     }
+    public function change()
+    {
+        $this->load->view('header');
+        $this->load->view('slider');
+        $this->load->view('changepassword');
+    }
     public function change_password()
     {
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
@@ -106,16 +112,18 @@ class LoginCtrl extends CI_Controller
         $email = $this->session->userdata('email');
         $old_password = $this->input->post('oldpassword');
         $new_password = $this->input->post('newpassword');
-
         if ($this->form_validation->run() == false) {
-            $this->session->set_flashdata('message', 'All Fields Are Mandatory');
+            $this->session->set_flashdata('msg', "0");
+            redirect(base_url('change'), 'refresh');
         } else {
             $new_pwd = $this->encryption->encrypt($new_password);
             $affected_rows = $this->LoginModel->change_pwd($old_password, $new_pwd, $email);
-            if ($affected_rows) {
-                $this->session->set_flashdata('message', 'Password changed successfully');
+            if ($affected_rows == 1) {
+                $this->session->set_flashdata('msg', "1");
+                redirect(base_url('change'), 'refresh');
             } else {
-                $this->session->set_flashdata('message', 'Current password is incorrect');
+                $this->session->set_flashdata('msg', "0");
+                redirect(base_url('change'), 'refresh');
             }
 
         }

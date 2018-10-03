@@ -102,7 +102,7 @@
 						</div>
 						<div class="col col s8 m8 l8">
 							<ul id="profile-dropdown" class="dropdown-content">
-								<li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+								<li><a href="<?php echo base_url('change');?>"><i class="mdi-action-face-unlock"></i> Change Password</a>
 								</li>
 							  <!--   <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
 								</li>

@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = false;
 /* Custom Redirect */
 $route['admin'] = 'LoginCtrl/index';
 $route['logout'] = 'LoginCtrl/logout';
+$route['change'] = 'LoginCtrl/change';
 $route['forgotPassword'] = 'LoginCtrl/forgotPassword';
 $route['ngoreg'] = 'NgoRegCtrl/ngoreg_view';
 $route['categentry'] = 'CategoryCtrl/categ_view';
