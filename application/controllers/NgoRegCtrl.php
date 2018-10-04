@@ -150,15 +150,6 @@ class NgoRegCtrl extends CI_Controller
                         $this->mailfunction_notification($ngo_name, $email);
                     }
                     if ($this->input->post('kycdoc') == "upload_doc") {
-<<<<<<< HEAD
-                        if($this->session->userdata('role_id')=="1"){
-                        $data['id'] = $insert_id;
-                        $this->load->view('Admin/doc_update', $data);
-                        }
-                        else{
-                        $data['id'] = $insert_id;
-                        $this->load->view('web/uploaddoc', $data);
-=======
                         if ($this->session->userdata('role_id') == "1") {
                             $data['id'] = $insert_id;
                             $this->load->view('Admin/doc_update', $data);
@@ -167,7 +158,6 @@ class NgoRegCtrl extends CI_Controller
                             $this->load->view('web/header');
                             $this->load->view('web/uploaddoc', $data);
                             $this->load->view('web/footer');
->>>>>>> 532a9467e4426f7f0c782c0b4d161b4d3a7f5bed
                         }
                     }
                 }
