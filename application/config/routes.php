@@ -58,6 +58,7 @@ $route['logout'] = 'LoginCtrl/logout';
 $route['change'] = 'LoginCtrl/change';
 $route['forgotPassword'] = 'LoginCtrl/forgotPassword';
 $route['ngoreg'] = 'NgoRegCtrl/ngoreg_view';
+$route['ngolist'] = 'NgoRegCtrl/get_ngo_list';
 $route['categentry'] = 'CategoryCtrl/categ_view';
 $route['categlist'] = 'CategoryCtrl/categ_list';
 $route['stories'] = 'WebCtrl/stories';

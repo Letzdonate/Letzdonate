@@ -59,4 +59,3 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="<?php echo base_url();?>application/js/custom-script.js"></script>
 </head>
-
