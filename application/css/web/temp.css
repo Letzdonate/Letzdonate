@@ -1,0 +1,102 @@
+
+
+/********************************************************************************* NGO Registration Starts *****************************/
+.ngo-wrap{
+	padding-top:8%;
+}
+.ngo-wrap h2{
+	line-height:84px;
+}
+.ngo-field-titles{
+	margin-left: 15px;
+    line-height: 40px;
+    font-size: 20px;
+}
+.ngo-addbtn{
+	background: #00B964;
+    margin-top: 38px!important;
+    border: none;
+    padding: 6px 21px;
+    color: white;
+    cursor: pointer;
+}
+.ngo-btn{
+	background: #00B964;
+    margin:5%!important;
+    border: none!important;
+	border-radius:4px;
+    padding:1% 10%;
+    color: white;
+    cursor: pointer;
+	filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.15));
+}
+.ngo-btn:hover{
+	filter: drop-shadow(0px 0px 0px rgba(0,0,0,0.15));
+}
+@media screen and (max-device-width: 800px) {
+.ngo-wrap{
+	padding-top:20%;
+}
+.ngo-addbtn{
+	margin:10px 0px 10px 17px!important;
+}
+}
+
+/********************************************************************************* NGO Registration Ends *****************************/
+
+/********************************************************************************* Login Starts *****************************/
+.login-wrap{
+	padding:5%;
+	margin:5%;
+}
+.log-reg-wrap{
+	filter:drop-shadow(0px 0px 5px rgba(0,0,0,0.15));
+	background:#FFF;
+	padding:4%;
+}
+.form-control1 {
+	 outline: none;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none!important;
+    border-bottom: 1px solid #CCCCCC!important;
+    border-radius: 0!important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control1::placeholder{
+	color: #cccccc;
+}
+.divider {
+    width:50%;
+}
+.divider > span {
+    font-size: 16px;
+    line-height: 36px;
+    background-color: #fff;
+    padding: 0 10px;
+	z-index:2;
+}
+
+@media screen and (max-device-width: 800px) {
+.login-wrap{
+	padding:5%;
+	margin:15%;
+}	
+.log-reg-wrap{
+	filter:drop-shadow(0px 0px 5px rgba(0,0,0,0.15));
+	background:#FFF;
+	padding:4%;
+}
+}
+
+/********************************************************************************* Login Ends *****************************/
+
+
+
+

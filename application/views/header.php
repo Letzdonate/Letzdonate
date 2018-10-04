@@ -8,7 +8,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <title>iGnovate Solutions</title>
+    <title>LetzDonate</title>
 
     <!-- Favicons-->
     <link rel="icon" href="<?php echo base_url();?>application/images/favicon/favicon1.png" sizes="32x32">

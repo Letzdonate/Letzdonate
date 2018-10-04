@@ -60,10 +60,7 @@ class LoginCtrl extends CI_Controller
                     $this->load->view('slider');
                     $this->load->view('admin/dashboard');
                 } else if ($this->session->userdata('role_id') == "2") { //ngo
-
-                    $this->load->view('header');
-                    $this->load->view('slider');
-                    $this->load->view('admin/dashboard');
+                    redirect(base_url('project_list'));
                 } else {
                     $this->load->view('header');
                     $this->load->view('slider');

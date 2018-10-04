@@ -67,14 +67,14 @@ class CategoryCtrl extends CI_Controller
             'status' => 'Active',
             'log' => $log,
         );
-
+        if ($id == "") {
+            $data['categ_insert_update']['categ_name'] = $this->input->post('categ_name');
+        }
         if ($this->form_validation->run() == false) {
             $data['id'] = "";
-            $data['categ_insert_update']['categ_name'] = "";
             $this->load->view('Admin/categ_entry', $data);
         } else {
             if ($id == "") {
-                $data['categ_insert_update']['categ_name'] = $this->input->post('categ_name');
                 $insert_id = $this->CategoryModel->categinsert($data['categ_insert_update']);
                 if ($insert_id) {
                     $this->session->set_flashdata('msg', "1");

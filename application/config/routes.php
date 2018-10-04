@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:    my-controller/index    -> my_controller/index
 |        my-controller/my-method    -> my_controller/my_method
  */
-$route['default_controller'] = 'LoginCtrl';
+$route['default_controller'] = 'WebCtrl';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 /* Custom Redirect */
@@ -60,4 +60,13 @@ $route['forgotPassword'] = 'LoginCtrl/forgotPassword';
 $route['ngoreg'] = 'NgoRegCtrl/ngoreg_view';
 $route['categentry'] = 'CategoryCtrl/categ_view';
 $route['categlist'] = 'CategoryCtrl/categ_list';
+$route['stories'] = 'WebCtrl/stories';
+$route['aboutus'] = 'WebCtrl/aboutus';
+$route['contact'] = 'WebCtrl/contact';
+$route['login'] = 'WebCtrl/login';
+$route['ngo_web_register'] = 'WebCtrl/ngo_web_register';
+$route['donor_register'] = 'WebCtrl/donor_web_register';
+$route['donor_forgotpassword'] = 'WebCtrl/donor_forgotpassword';
+$route['uploaddoc'] = 'WebCtrl/uploaddoc';
+$route['single_project'] = 'WebCtrl/single_project';
 /* Custom Redirect */

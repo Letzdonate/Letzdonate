@@ -105,7 +105,7 @@
                     </div>
 					 <div class="row">
                       <div class="input-field col s6">
-                        <input id="fblink" type="text"name="fblink" value = "<?php echo $ngo_insert_update['fblink']; ?>">
+                        <input id="fblink" type="text" name="fblink" value = "<?php echo $ngo_insert_update['fblink']; ?>">
                         <label for="fblink">social media link (fb)</label>
 						<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('fblink'); ?></span>
                       </div>
@@ -174,6 +174,7 @@
                   </div>
 
                     </div>
+                    <?php if($this->session->userdata('role_id') == 1){?>
 					 <div class="row">
                         <div class="input-field col s12">
                           <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
@@ -181,6 +182,7 @@
                           </button>
                         </div>
                       </div>
+                    <?php } ?>
                    <?php echo form_close(); ?>
                 </div>
               </div>
@@ -191,7 +193,7 @@
 			<?php if ($id != "") {?>
 			 <div class="section">
 				 <div id="striped-table">
-              <h4 class="header">KYC Document List</h4><a href="<?php echo base_url('index.php/NgoRegCtrl/ngo_doc_view/' . $id); ?>"><i class="mdi-content-create"></i></a>
+      <h4 class="header">KYC Document List</h4> <?php if($this->session->userdata('role_id') == 1){?><a href="<?php echo base_url('index.php/NgoRegCtrl/ngo_doc_view/' . $id); ?>"><i class="mdi-content-create"></i></a><?php } ?>
               <div class="row">
                 <div class="col s12 m12">
                   <table class="striped" cellspacing="0">

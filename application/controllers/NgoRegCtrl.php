@@ -14,7 +14,11 @@ class NgoRegCtrl extends CI_Controller
         $this->load->library('form_validation');
         date_default_timezone_set('Asia/Kolkata');
         $this->load->view('header');
-        $this->load->view('slider');
+        if ($this->session->userdata('role_id') == 1) {
+            $this->load->view('slider');
+        } else if ($this->session->userdata('role_id') == 2) {
+            $this->load->view('slider_ngo');
+        }
         $this->load->model('NgoModel');
         $this->load->library('encryption');
         $this->load->helper('myhelper');
