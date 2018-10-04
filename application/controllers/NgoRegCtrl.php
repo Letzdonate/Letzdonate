@@ -126,8 +126,14 @@ class NgoRegCtrl extends CI_Controller
             $data['ngo_insert_update']['name'] = $ngo_name;
             $data['ngo_insert_update']['password'] = $pwd;
         }
+        if($this->session->user_data('role_id')=="1"){
+            $validation_view=$this->load->view('Admin/ngoreg', $data);
+        }
+        else{
+            $validation_view=$this->load->view('web/ngo_register', $data);
+        }
         if ($this->form_validation->run() == false) {
-            $this->load->view('Admin/ngoreg', $data);
+            $validation_view;
         } else {
             if ($id == "") {
                 $insert_id = $this->NgoModel->ngoinsert($data['ngo_insert_update']);

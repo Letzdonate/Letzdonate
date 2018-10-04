@@ -7,22 +7,22 @@
 			<div class="basic-details">
 				<div class="form-group col-sm-6 float-left">
 					<label for="organizationname">Organization Name*</label>
-					<input type="text" class="form-control" name="ngo_name" id="organizationname" placeholder="Enter organization name">
+					<input type="text" class="form-control" name="ngo_name" id="organizationname" value = "<?php echo $ngo_insert_update['name']; ?>" placeholder="Enter organization name">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('ngo_name'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="email">Email address*</label>
-					<input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+					<input type="email" name="email" class="form-control" id="email"value = "<?php echo $ngo_insert_update['email']; ?>" placeholder="name@example.com">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('email'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="phonenumber">Phone Number*</label>
-					<input type="text" class="form-control" name="phone" id="phonenumber" placeholder="Enter valid mobile number">
+					<input type="text" class="form-control" name="phone" id="phonenumber" value = "<?php echo $ngo_insert_update['phone']; ?>" placeholder="Enter valid mobile number">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('phone'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="phonenumber">Register Number*</label>
-					<input type="text" name="ngo_regno" class="form-control" id="phonenumber" placeholder="Enter register number">
+					<input type="text" name="ngo_regno" class="form-control"value = "<?php echo $ngo_insert_update['ngo_regno']; ?>" id="phonenumber" placeholder="Enter register number">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('ngo_regno'); ?></span>
 				</div>
 			</div>
@@ -30,37 +30,37 @@
 				<h6 class="ngo-field-titles"><b>Address</b></h6>
 				<div class="form-group col-sm-6 float-left">
 					<label for="doorno">Door No</label>
-					<input type="text" class="form-control" name="door" id="doorno" placeholder="Door no / street name">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['door']; ?>" name="door" id="doorno" placeholder="Door no / street name">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('door'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="street">Street name</label>
-					<input type="text" class="form-control" name="street" id="street" placeholder="Street name">
+					<input type="text" class="form-control"value = "<?php echo $ngo_insert_update['street']; ?>" name="street" id="street" placeholder="Street name">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('street'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="area">Area</label>
-					<input type="text" class="form-control" name="area" id="area" placeholder="Area">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['area']; ?>" name="area" id="area" placeholder="Area">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('area'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="city">City</label>
-					<input type="text" class="form-control" name="city" id="doorno" placeholder="City">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['city']; ?>" name="city" id="city" placeholder="City">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('city'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="state">State</label>
-					<input type="text" class="form-control" name="state" id="state" placeholder="State">
+					<input type="text" class="form-control"value = "<?php echo $ngo_insert_update['state']; ?>" name="state" id="state" placeholder="State">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('state'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="country">Country</label>
-					<input type="text" class="form-control" name="country" id="doorno" placeholder="Country">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['country']; ?>" name="country" id="doorno" placeholder="Country">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('country'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="pincode">Postal Code</label>
-					<input type="text"  class="form-control" name="pincode" id="pincode" placeholder="Postal Code">
+					<input type="text"  class="form-control" value = "<?php echo $ngo_insert_update['pincode']; ?>" name="pincode" id="pincode" placeholder="Postal Code">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('pincode'); ?></span>
 				</div>
 			</div>
@@ -69,17 +69,17 @@
 				<h6 class="ngo-field-titles"><b>Contact Details</b></h6>
 				<div class="form-group col-sm-6 float-left">
 					<label for="contactpersonname">Contact Person Name*</label>
-					<input type="text" class="form-control" name="contact_person" id="contactpersonname" placeholder="Contact Person Name">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['contact_person']; ?>" name="contact_person" id="contactpersonname" placeholder="Contact Person Name">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('contact_person'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="contactpersonnumber">Contact Person Number*</label>
-					<input type="text" class="form-control" name="contact_person_phone" id="contactpersonnumber" placeholder="Contact Person Number">
+					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['contact_person_phone']; ?>" name="contact_person_phone" id="contactpersonnumber" placeholder="Contact Person Number">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('contact_person_phone'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
 					<label for="roleofcontact">Role of Contact Person</label>
-					<input type="text"  class="form-control" name="contact_person_role" id="roleofcontact" placeholder="Role of Contact Person">
+					<input type="text"  class="form-control" value = "<?php echo $ngo_insert_update['contact_person_role']; ?>" name="contact_person_role" id="roleofcontact" placeholder="Role of Contact Person">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('contact_person_role'); ?></span>
 				</div>
 			</div>
@@ -88,17 +88,26 @@
 				<h6 class="ngo-field-titles"><b>Kyc Documents</b></h6>
 				<div class="form-check-inline ngo-field-titles">
 					<label class="form-check-label">
-						<input type="radio" id="upload" class="form-check-input" value="upload_doc" name="kycdoc">Upload Documents
+						<input type="radio" id="upload"  class="form-check-input"<?php if ($ngo_insert_update['kycdoc'] == "upload_doc") {
+    echo 'checked="checked"';
+}
+?> value="upload_doc" name="kycdoc">Upload Documents
 					</label>
 				</div>
 				<div class="form-check-inline ngo-field-titles">
 				  <label class="form-check-label">
-					<input type="radio" id="physical" class="form-check-input" value="physical_collect" name="kycdoc">Physical Collection
+					<input type="radio" id="physical" class="form-check-input" <?php if ($ngo_insert_update['kycdoc'] == "physical_collect") {
+    echo 'checked="checked"';
+}
+?> value="physical_collect" name="kycdoc">Physical Collection
 				  </label>
 				</div>
 				<div class="form-check-inline ngo-field-titles">
 				  <label class="form-check-label">
-					<input type="radio" id="mail" class="form-check-input" value="mail_serv" name="kycdoc">Mail Service
+					<input type="radio" id="mail" class="form-check-input" <?php if ($ngo_insert_update['kycdoc'] == "mail_serv") {
+    echo 'checked="checked"';
+}
+?> value="mail_serv" name="kycdoc">Mail Service
 				  </label>
 				  <span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('kycdoc'); ?></span>
 				</div>
