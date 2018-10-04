@@ -3,6 +3,7 @@
 <head>
 	<title>Letzdonate</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="shortcut icon" href="<?php echo base_url();?>application/images/web/logo-01.png">
 	<link a href="<?php echo base_url();?>application/css/web/style.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/css/bootstrap.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/css/bootstrap.min.css" type="text/css" rel="stylesheet">

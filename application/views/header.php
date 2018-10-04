@@ -11,7 +11,7 @@
     <title>LetzDonate</title>
 
     <!-- Favicons-->
-    <link rel="icon" href="<?php echo base_url();?>application/images/favicon/favicon1.png" sizes="32x32">
+    <link rel="shortcut icon" href="<?php echo base_url();?>application/images/web/logo-01.png">
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>application/images/favicon/favicon.png">
     <!-- For iPhone -->
