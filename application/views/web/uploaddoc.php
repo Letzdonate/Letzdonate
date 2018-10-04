@@ -3,7 +3,7 @@
 	<h2 class="text-center">NGO Registration</h2>
 	
 	<div class="col-sm-10 mx-auto d-block">
-		<form>
+	<?php echo form_open_multipart('NgoRegCtrl/ngo_doc_insert_update'); ?>
 			
 			<div class="kyc">
 				<h6 class="ngo-field-titles"><b>Kyc Documents</b></h6>
@@ -34,7 +34,7 @@
 			</div>
 			<!-- ID should come in place -->
 			<button  class="ngo-btn mx-auto d-block">Submit</button>
-		</form>
+			<?php echo form_close(); ?>
 	</div>
 	
 </div>
