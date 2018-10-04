@@ -144,8 +144,14 @@ class NgoRegCtrl extends CI_Controller
                         $this->mailfunction_notification($ngo_name, $email);
                     }
                     if ($this->input->post('kycdoc') == "upload_doc") {
+                        if($this->session->user_data('role_id')=="1"){
                         $data['id'] = $insert_id;
                         $this->load->view('Admin/doc_update', $data);
+                        }
+                        else{
+                        $data['id'] = $insert_id;
+                        $this->load->view('web/uploaddoc', $data);
+                        }
                     }
                 }
             } else {
