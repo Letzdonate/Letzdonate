@@ -32,6 +32,7 @@
 					</div>
 				</div>
 			</div>
+			<input style="display:none;"type="text" name="userid" value="<?php echo $id ?>"/>
 			<!-- ID should come in place -->
 			<button  class="ngo-btn mx-auto d-block">Submit</button>
 			<?php echo form_close(); ?>
