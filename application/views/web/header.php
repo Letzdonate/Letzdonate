@@ -7,8 +7,8 @@
 	<link a href="<?php echo base_url();?>application/css/web/style.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/css/bootstrap.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-	<!-- <link a href="css/mdb.css" type="text/css" rel="stylesheet"> -->
-	<!-- <link a href="css/mdb.min.css" type="text/css" rel="stylesheet"> -->
+	<!-- <link a href="<?php echo base_url();?>application/css/web/mdb.css" type="text/css" rel="stylesheet"> -->
+	<!-- <link a href="<?php echo base_url();?>application/css/web/mdb.min.css" type="text/css" rel="stylesheet"> -->
 	<link a href="<?php echo base_url();?>application/css/web/bootstrap-grid.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/bootstrap-grid.min.css" type="text/css" rel="stylesheet">
 	<link a href="<?php echo base_url();?>application/css/web/bootstrap-reboot.css" type="text/css" rel="stylesheet">
@@ -21,9 +21,7 @@
 	<script src="<?php echo base_url();?>application/js/web/common.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 </head>
-
 <body>
-
 <div class="container-fluid">
 
 <nav class="navbar navbar-expand-lg fixed-top">

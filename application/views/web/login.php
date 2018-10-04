@@ -24,7 +24,6 @@
 		<button type="submit" class="col-sm-8 ngo-btn mx-auto d-block fb-btn" style="background:#4867AA;">
 			<img class="float-left" src="<?php echo base_url();?>application/images/web/icons/7_Login-03.png"/>Sign in with Facebook
 		</button> -->
-		
 	</div>
 </div>
 

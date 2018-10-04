@@ -36,8 +36,8 @@
               <h4 class="header">NGO List</h4>
               <div class="row">
                 <div class="col s12 m12">
-									<table id="data-table-simple" class=" responsive-table display highlight" cellspacing="0">
-                  <!-- Approved List -->
+									<!-- Approved List -->
+                  <table id="data-table-simple" class="approved responsive-table display highlight" cellspacing="0">
                     <thead>
                         <tr>
 														<th>View</th>
@@ -49,7 +49,7 @@
                         </tr>
 										</thead>
 										<!-- Approved List -->
-                    <tbody class="approved">
+                    <tbody class="">
 											<?php foreach ($get_ngo_active_list as $ngo_active_list): ?>
 													<tr>
 														<td class="center-align"><a href="<?php echo base_url('index.php/NgoRegCtrl/ngoreg_view/' . $ngo_active_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
@@ -61,11 +61,21 @@
 													</tr>
 											<?php endforeach;?>
 										</tbody>
-									
+									</table>	
 										<!-- Approved List -->
 										<!-- Pending List -->
-										
-										<tbody class="pending">
+									<table id="data-table-simple" class="pending responsive-table display highlight" cellspacing="0">
+										<thead>
+												<tr>
+													<th>View</th>
+													<th>NGO Name</th>
+													<th>Email</th>
+													<th>Phone</th>
+													<th>Contact Person</th>
+													<th>Contact Person Phone</th>
+												</tr>
+										</thead>		
+										<tbody class="">
 												<?php foreach ($get_ngo_pending_list as $ngo_pending_list): ?>
                         	<tr>
 														<td class="center-align"><a href="<?php echo base_url('index.php/NgoRegCtrl/ngoreg_view/' . $ngo_pending_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
@@ -77,11 +87,21 @@
 	                        </tr>
 												<?php endforeach;?>
 										</tbody>
-									
+									</table>	
 										<!-- Pending List -->
 										<!-- Hold List -->
-									
-										<tbody class="hold">
+									<table id="data-table-simple" class="hold responsive-table display highlight" cellspacing="0">
+										<thead>
+												<tr>
+													<th>View</th>
+													<th>NGO Name</th>
+													<th>Email</th>
+													<th>Phone</th>
+													<th>Contact Person</th>
+													<th>Contact Person Phone</th>
+												</tr>
+										</thead>
+										<tbody class="">
 											<?php foreach ($get_ngo_hold_list as $ngo_hold_list): ?>
                         <tr>
 													<td class="center-align"><a href="<?php echo base_url('index.php/NgoRegCtrl/ngoreg_view/' . $ngo_hold_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
@@ -93,11 +113,21 @@
                         </tr>
 											<?php endforeach;?>
 										</tbody>
-						
+									</table>
 										<!-- Hold List -->
 										<!-- In Active List -->
-										
-										<tbody class="inactive">
+									<table id="data-table-simple" class="inactive responsive-table display highlight" cellspacing="0">
+										<thead>
+												<tr>
+													<th>View</th>
+													<th>NGO Name</th>
+													<th>Email</th>
+													<th>Phone</th>
+													<th>Contact Person</th>
+													<th>Contact Person Phone</th>
+												</tr>
+										</thead>
+										<tbody class="">
 											<?php foreach ($get_ngo_inactive_list as $ngo_inactive_list): ?>
                         <tr>
 													<td class="center-align"><a href="<?php echo base_url('index.php/NgoRegCtrl/ngoreg_view/' . $ngo_inactive_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
