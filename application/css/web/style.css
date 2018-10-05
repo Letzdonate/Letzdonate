@@ -704,4 +704,14 @@ hr{
 }
 }
 
+.defaultimage{
+	height:550px;
+	overflow: hidden;
+}
+.previmage{
+	height:166px;
+}
+.featuredimage{
+	height:238px;
+}
 /********************************************************************************* Login Ends *****************************/

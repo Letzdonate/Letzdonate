@@ -46,96 +46,39 @@
 
 <!---------------------------------------------------------------------------------------sec-1--------------------------------->
 
-
 <div class="container-fluid emergency">
 	<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="col-sm-11 mx-auto d-block">
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
+					<?php foreach(array_slice($get_recent_projects,0,3) as $recentproj):?>
+						<div class="col-sm-3 float-left em-box">
+							<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
+								<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
+								<div class="em-pro-deatils">
+									<div class="project-title"><?=character_limiter($recentproj->proj_name,10);?></div>
+									<div class="category"><?=$recentproj->proj_category;?></div>
+									<div class="date"><?=$recentproj->start_date;?></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
+					<?php endforeach;?>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="col-sm-11 mx-auto d-block">
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
+					<?php foreach(array_slice($get_recent_projects,4,7) as $recentproj):?>
+						<div class="col-sm-3 float-left em-box">
+							<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
+								<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
+								<div class="em-pro-deatils">
+									<div class="project-title"><?=character_limiter($recentproj->proj_name,10);?></div>
+									<div class="category"><?=$recentproj->proj_category;?></div>
+									<div class="date"><?=$recentproj->start_date;?></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left em-box">
-						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
-							<div class="em-pro-deatils">
-								<div class="project-title">Lorem Color Lorem</div>
-								<div class="category">Education</div>
-								<div class="date">Aug 2, 2016</div>
-							</div>
-						</div>
-					</div>
+					<?php endforeach;?>
 				</div>
 			</div>
 		</div>
@@ -214,66 +157,28 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-11.png">
-							<div class="col-sm-8 sec-4-pro-date">Apr 15, 2018</div>
-							<p class="sec-4-pro-title">The girl with Cancer wishes to go home..</p>
+					<?php foreach(array_slice($get_recent_projects, 0, 4) as $recentproj): ?>
+						<div class="col-sm-3 float-left pad-2">
+							<div class="stories-box">
+								<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
+								<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
+								<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name,15);?></p>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-12.png">
-							<div class="col-sm-8 sec-4-pro-date">Mar 11, 2018</div>
-							<p class="sec-4-pro-title">5 Years Old, A Big Hole In her Heart Cannot Eat Or Grow.. </p>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-13.png">
-							<div class="col-sm-8 sec-4-pro-date">Jan 27, 2018</div>
-							<p class="sec-4-pro-title">11-Year-Old boy need Transplant to Beat Cancer..</p>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-14.png">
-							<div class="col-sm-8 sec-4-pro-date">Nov 24, 2017</div>
-							<p class="sec-4-pro-title">Even A Cold Can Kill This 1Year Baby Girl..</p>
-						</div>
-					</div>
+					<?php endforeach;?>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-11.png">
-							<div class="col-sm-8 sec-4-pro-date">Apr 15, 2018</div>
-							<p class="sec-4-pro-title">The girl with Cancer wishes to go home..</p>
+				<?php foreach(array_slice($get_recent_projects, 4, 7) as $recentproj): ?>
+						<div class="col-sm-3 float-left pad-2">
+							<div class="stories-box">
+								<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
+								<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
+								<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name,15);?></p>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-12.png">
-							<div class="col-sm-8 sec-4-pro-date">Mar 11, 2018</div>
-							<p class="sec-4-pro-title">5 Years Old, A Big Hole In her Heart Cannot Eat Or Grow.. </p>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-13.png">
-							<div class="col-sm-8 sec-4-pro-date">Jan 27, 2018</div>
-							<p class="sec-4-pro-title">11-Year-Old boy need Transplant to Beat Cancer..</p>
-						</div>
-					</div>
-					<div class="col-sm-3 float-left pad-2">
-						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-14.png">
-							<div class="col-sm-8 sec-4-pro-date">Nov 24, 2017</div>
-							<p class="sec-4-pro-title">Even A Cold Can Kill This 1Year Baby Girl..</p>
-						</div>
-					</div>
+					<?php endforeach;?>
 				</div>
 			</div>
 		</div>

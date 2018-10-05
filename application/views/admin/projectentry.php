@@ -56,7 +56,7 @@
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="proj_desc" type="text" name="proj_desc" maxlength="133" length="133" value = "<?php echo $project_insert_update['proj_desc'];?>">
+											<input id="proj_desc" type="text" name="proj_desc" maxlength="1500" length="1500" value = "<?php echo $project_insert_update['proj_desc'];?>">
 											<label for="proj_desc">Description*</label>
 												<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('proj_desc'); ?></span>
 										</div>						 	

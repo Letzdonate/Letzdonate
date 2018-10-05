@@ -21,19 +21,24 @@ class WebCtrl extends CI_Controller
     }
     public function index()
     {
-        $this->load->view('web/index');
+        $query = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id and a.status = "Active" GROUP by a.id ORDER BY a.id DESC LIMIT 8';
+        $data['get_recent_projects'] = $this->db->query($query)->result();
+        $this->load->view('web/index', $data);
         $this->load->view('web/footer');
     }
     public function stories()
     {
-        $data['get_proj_active_list'] = $this->db->get_where('project_details', array('status' => 'Active'))->result();
-        $this->load->view('web/list_project',$data);
+        $query = "SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id GROUP by a.id";
+        $data['get_project_images'] = $this->db->query($query)->result();
+        $this->load->view('web/list_project', $data);
         $this->load->view('web/footer');
     }
-    public function single_project($id= false)
+    public function single_project($id = false)
     {
-        $data['get_single_project'] = $this->db->get_where('project_details', array('id'=> $id,'status' => 'Active'))->row_array();
-        $data['get_single_project_images'] = $this->db->get_where('proj_img', array('proj_id'=> $id))->result();
+        $data['get_single_project'] = $this->db->get_where('project_details', array('id' => $id, 'status' => 'Active'))->row_array();
+        $data['get_single_project_images'] = $this->db->get_where('proj_img', array('proj_id' => $id))->result();
+        $query = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id and a.status = "Active" GROUP by a.id ORDER BY a.id DESC LIMIT 1';
+        $data['get_recent_project'] = $this->db->query($query)->row_array();
         $this->load->view('web/single_project', $data);
         $this->load->view('web/footer');
     }
@@ -52,7 +57,8 @@ class WebCtrl extends CI_Controller
         $this->load->view('web/login');
         $this->load->view('web/footer');
     }
-    public function register_insert(){
+    public function register_insert()
+    {
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
         $this->form_validation->set_message('valid_email', 'The {field} field is not valid');
         $this->form_validation->set_message('numeric', 'The {field} field must be in number');
@@ -62,7 +68,7 @@ class WebCtrl extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
         $this->form_validation->set_rules('cfmpassword', 'Confirm Password', 'required|matches[password]');
         $now = new DateTime();
-        $log = "Via_Web_". $this->input->post('firstname') . "_". $now->format('Y-m-d H:i:s');
+        $log = "Via_Web_" . $this->input->post('firstname') . "_" . $now->format('Y-m-d H:i:s');
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $pwd = $this->encryption->encrypt($password);
@@ -75,22 +81,22 @@ class WebCtrl extends CI_Controller
             'phone' => $this->input->post('phone'),
             'password' => $pwd,
             'status' => 'Active',
-            'log' => $log
-            );
-            if ($this->form_validation->run() == false) {
-                    $this->load->view('web/donor_register', $data);
-                    $this->load->view('web/footer');
+            'log' => $log,
+        );
+        if ($this->form_validation->run() == false) {
+            $this->load->view('web/donor_register', $data);
+            $this->load->view('web/footer');
+        } else {
+            $insert_id = $this->NgoModel->ngoinsert($data['donor_insert_update']);
+            if ($insert_id) {
+                $this->session->set_flashdata('msg', "1");
+                redirect(base_url('stories'));
             } else {
-                $insert_id = $this->NgoModel->ngoinsert($data['donor_insert_update']);
-                if ($insert_id) {
-                    $this->session->set_flashdata('msg', "1");
-                    redirect(base_url('stories'));
-                }else{
-                    $this->session->set_flashdata('msg', "0");
-                    $this->load->view('web/donor_register', $data);
-                    $this->load->view('web/footer');
-                }
+                $this->session->set_flashdata('msg', "0");
+                $this->load->view('web/donor_register', $data);
+                $this->load->view('web/footer');
             }
+        }
     }
     public function ngo_web_register()
     {
@@ -115,24 +121,24 @@ class WebCtrl extends CI_Controller
             'kycdoc' => "",
             'status' => "",
         );
-        $this->load->view('web/ngo_register',$data);
+        $this->load->view('web/ngo_register', $data);
         $this->load->view('web/footer');
-    } 
+    }
     public function donor_web_register()
     {
         $this->load->view('web/donor_register');
         $this->load->view('web/footer');
-    } 
+    }
     public function donor_forgotpassword()
     {
         $this->load->view('web/donor_forgotpassword');
         $this->load->view('web/footer');
-    } 
+    }
     public function uploaddoc()
     {
         $this->load->view('web/uploaddoc');
         $this->load->view('web/footer');
-    } 
+    }
     public function generateRandomString($length = 8)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&';

@@ -3,10 +3,11 @@
 <div class="container-fluid">
 	<div class="col-sm-12 section">
 		<div class="col-sm-9 float-left project" style="padding:2%!important">
-			<?php foreach ($get_proj_active_list as $proj_active_list): ?>
-				<h3 id="" class="pro-project-head"><?=$proj_active_list->proj_name;?></h3>
+			<?php foreach ($get_project_images as $proj_active_list): ?>
+			
+			<a href="<?php echo base_url('single_project/'.$proj_active_list->id); ?>"><h3 id="" class="pro-project-head"><?=$proj_active_list->proj_name;?></h3></a>
 					<div class="pro-project">
-						<img class="img-responsive float-left col-sm-5" src="<?php echo base_url();?>application/images/web/project/Project-02.jpg">
+					<a href="<?php echo base_url('single_project/'.$proj_active_list->id); ?>">	<img class="img-responsive float-left col-sm-5 featuredimage" src="<?=$proj_active_list->fullpath;?>"> </a>
 						<p class="pro-project-detail col-sm-7"><?=character_limiter($proj_active_list->story_paragraph1,380);?>   <a href="<?php echo base_url('single_project/'.$proj_active_list->id); ?>"><span class="readmore">Read More</span></a></p>
 						<h5 class="pro-raised float-left">Raised so far  <span class="pro-raised-rup"><?=$proj_active_list->collected_amount ;?></span></h5>
 						<h5 class="float-right"></h5>
