@@ -9,6 +9,7 @@ class WebCtrl extends CI_Controller
         $this->ci = &get_instance();
         $this->load->library('session');
         $this->load->helper('form');
+        $this->load->helper('text');
         $this->load->helper('url');
         $this->load->database();
         $this->load->library('form_validation');
@@ -25,12 +26,14 @@ class WebCtrl extends CI_Controller
     }
     public function stories()
     {
-        $this->load->view('web/list_project');
+        $data['get_proj_active_list'] = $this->db->get_where('project_details', array('status' => 'Active'))->result();
+        $this->load->view('web/list_project',$data);
         $this->load->view('web/footer');
     }
-    public function single_project()
+    public function single_project($id= false)
     {
-        $this->load->view('web/single_project');
+        $data['get_single_project'] = $this->db->get_where('project_details', array('id'=> $id,'status' => 'Active'))->row_array();
+        $this->load->view('web/single_project', $data);
         $this->load->view('web/footer');
     }
     public function aboutus()

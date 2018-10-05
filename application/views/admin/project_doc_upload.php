@@ -41,7 +41,7 @@
                         </div>
                       </div>
                     </div>
-					<input style="display:none;"type="text" name="proj_id" value="<?php echo $id ?>"/>
+					<input type="hidden" name="proj_id" value="<?php echo $id ?>"/>
 					 <div class="row">
                         <div class="input-field col s12">
                           <button class="btn cyan waves-effect waves-light right" type="submit" value="files" name="action">Submit

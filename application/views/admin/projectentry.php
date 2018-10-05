@@ -10,6 +10,27 @@
 				<div class="container">
 				 <div class="card-panel">
 				  <div class="section">
+					<?php if ($this->session->flashdata('msg') != null) {?>
+                    <?php if ($this->session->flashdata('msg') != 0) {?>
+                        <div id="card-alert" class="card green alert">
+                        <div class="card-content white-text">
+                            <p><i class="mdi-navigation-check"></i> Project Saved</p>
+                        </div>
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                    <?php } else {?>
+                        <div id="card-alert" class="card red alert">
+                        <div class="card-content white-text">
+                            <p><i class="mdi-alert-error"></i> Project Not Saved : Something Went Wrong</p>
+                        </div>
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                    <?php }?>
+                <?php }?>
 						<div id="input-fields">
 							 <h4 class="header">Project Entry</h4>
 							 <div class="row">
@@ -22,9 +43,9 @@
 										</div>
 										 <div class="input-field col s6">
 											<select name="proj_category">
-											<option value=""disabled>--Select--</option>
+											<option value="">--Select--</option>
 											  <?php foreach($proj_category as $categ): ?>
-										<option value="<?php echo $categ->id?>" <?php if($project_insert_update['proj_category']==$categ->id) echo 'selected="selected"'; ?>><?php echo $categ->categ_name?></option>
+										<option value="<?php echo $categ->categ_name?>" <?php if($project_insert_update['proj_category']==$categ->categ_name) echo 'selected="selected"'; ?>><?php echo $categ->categ_name?></option>
 										<?php endforeach;?>
 											</select>
 											<!---->
@@ -38,6 +59,19 @@
 											<input id="proj_desc" type="text" name="proj_desc" maxlength="133" length="133" value = "<?php echo $project_insert_update['proj_desc'];?>">
 											<label for="proj_desc">Description*</label>
 												<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('proj_desc'); ?></span>
+										</div>						 	
+									</div> 
+									<div class="row">
+										<div class="input-field col s12">
+										<select name="ngo">
+											<option value="">--Select--</option>
+											  <?php foreach($ngo_list as $ngo): ?>
+												<option value="<?php echo $ngo->name?>" <?php if($project_insert_update['ngo']==$ngo->name) echo 'selected="selected"'; ?>><?php echo $ngo->name; ?></option>
+												<?php endforeach;?>
+											</select>
+											<!---->
+											<label>Ngo</label>
+												<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('ngo'); ?></span>
 										</div>						 	
 									</div> 
 									<div class="row">
@@ -178,5 +212,11 @@
 			$('#tdate').show();
 		}
 	});
+</script>
+<script>
+	$(document).ready(function(){
+        var timeout = 3000; // in miliseconds (3*1000)
+        $('.alert').delay(timeout).fadeOut(300);
+    });
 </script>
 </html>

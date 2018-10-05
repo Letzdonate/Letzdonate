@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-
-<body>
-  
-	 <!-- START CONTENT -->
+<!-- START CONTENT -->
 	
 		<div class="container">
           <div class="section">
@@ -16,7 +9,7 @@
                   <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Project ID</th>
+                            <th></th>
                             <th>Project Name</th>
                             <th>Category</th>
                             <th>NGO Name</th>
@@ -28,55 +21,62 @@
                         </tr>
                     </thead>
                  
-                    <tfoot>
-                        <tr>
-                            <th>Project ID</th>
-                            <th>Project Name</th>
-                            <th>Category</th>
-                            <th>NGO Name</th>
-                            <th>Start date</th>
-							<th>Project Scope</th>
-							<th>Target Date</th>
-                            <th>Target Amount</th>
-                            <th>Collected Amount</th>
-                        </tr>
-                    </tfoot>
-                 
-                    <tbody>
-                        <tr>
-                            <td><a href="#">Letz1001</a></td>
-                            <td>Hunger for Education</td>
-                            <td>Education</td>
-                            <td>Rotaract Club</td>
-                            <td>17/08/2018</td>
-							<td>Recurring</td>
-							<td>-</td>
-                            <td>1,00,00,000</td>
-                            <td>50,0000</td>
-                        </tr>
-						 <tr>
-                            <td><a href="#">Letz1002</a></td>
-                            <td>Buliding healty India</td>
-                            <td>Hunger</td>
-                            <td>Rotaract Club</td>
-                            <td>17/08/2018</td>
-							<td>Target</td>
-							<td>01/12/2018</td>
-                            <td>10,00,000</td>
-							<td>75,0000</td>
-                        </tr>
-						<tr>
-                            <td><a href="#">Letz1003</a></td>
-                            <td>Cancer Free Nation</td>
-                            <td>Medical</td>
-                            <td>Loins Club</td>
-                            <td>17/08/2018</td>
-							<td>Recurring</td>
-							<td>-</td>
-                            <td>5,10,00,000</td>
-							<td>5,00,000</td>
-                        </tr>
+                    <!-- Approved List -->
+                    <tbody class="approved">
+                        <?php foreach ($get_proj_active_list as $proj_active_list): ?>
+                            <tr>
+                                <td class="center-align"><a href="<?php echo base_url('index.php/ProjectCtrl/project_view/' . $proj_active_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
+                                <td><?=$proj_active_list->proj_name;?></td>
+                                <td><?=$proj_active_list->proj_category;?></td>
+                                <td><?=$proj_active_list->ngo;?></td>
+                                <td><?=$proj_active_list->start_date;?></td>
+                                <td><?=$proj_active_list->proj_scope;?></td>
+                                <td><?=$proj_active_list->proj_target_date;?></td>
+                                <td><?=$proj_active_list->proj_amount;?></td>
+                                <td><?=$proj_active_list->collected_amount;?></td>
+                            </tr>
+                        <?php endforeach;?>
                     </tbody>
+
+                    <!-- Approved List -->
+                    <!-- Pending List -->
+
+                    <tbody class="pending">
+                        <?php foreach ($get_proj_pending_list as $proj_pending_list): ?>
+                        <tr>
+                                <td class="center-align"><a href="<?php echo base_url('index.php/ProjectCtrl/project_view/' . $proj_pending_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
+                                <td><?=$proj_pending_list->proj_name;?></td>
+                                <td><?=$proj_pending_list->proj_category;?></td>
+                                <td><?=$proj_pending_list->ngo;?></td>
+                                <td><?=$proj_pending_list->start_date;?></td>
+                                <td><?=$proj_pending_list->proj_scope;?></td>
+                                <td><?=$proj_pending_list->proj_target_date;?></td>
+                                <td><?=$proj_pending_list->proj_amount;?></td>
+                                <td><?=$proj_pending_list->collected_amount;?></td>
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+
+                    <!-- Pending List -->
+                    <!-- Completed List -->
+
+                    <tbody class="hold">
+                        <?php foreach ($get_proj_completed_list as $proj_hold_list): ?>
+                            <tr>
+                                <td class="center-align"><a href="<?php echo base_url('index.php/ProjectCtrl/project_view/' . $proj_hold_list->id); ?>"><i class="mdi-action-visibility"></i></a></td>
+                                <td><?=$proj_hold_list->proj_name;?></td>
+                                <td><?=$proj_hold_list->proj_category;?></td>
+                                <td><?=$proj_hold_list->ngo;?></td>
+                                <td><?=$proj_hold_list->start_date;?></td>
+                                <td><?=$proj_hold_list->proj_scope;?></td>
+                                <td><?=$proj_hold_list->proj_target_date;?></td>
+                                <td><?=$proj_hold_list->proj_amount;?></td>
+                                <td><?=$proj_hold_list->collected_amount;?></td>
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+
+                    <!-- Completed List -->
                   </table>
                 </div>
               </div>

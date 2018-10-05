@@ -61,6 +61,8 @@ $route['ngoreg'] = 'NgoRegCtrl/ngoreg_view';
 $route['ngolist'] = 'NgoRegCtrl/get_ngo_list';
 $route['categentry'] = 'CategoryCtrl/categ_view';
 $route['categlist'] = 'CategoryCtrl/categ_list';
+$route['projectentry'] = 'ProjectCtrl/project_view';
+$route['projectlist'] = 'ProjectCtrl/proj_list_view';
 $route['stories'] = 'WebCtrl/stories';
 $route['aboutus'] = 'WebCtrl/aboutus';
 $route['contact'] = 'WebCtrl/contact';
@@ -69,5 +71,5 @@ $route['ngo_web_register'] = 'WebCtrl/ngo_web_register';
 $route['donor_register'] = 'WebCtrl/donor_web_register';
 $route['donor_forgotpassword'] = 'WebCtrl/donor_forgotpassword';
 $route['uploaddoc'] = 'WebCtrl/uploaddoc';
-$route['single_project'] = 'WebCtrl/single_project';
+$route['single_project/(:any)'] = 'WebCtrl/single_project/$1';
 /* Custom Redirect */
