@@ -8,10 +8,29 @@
 				<div class="col-sm-6 float-left text-center single-raised-border"><h3>Raised so far&nbsp&nbsp<span class="single-raised-rup"><?php echo $get_single_project['collected_amount']; ?></span></h3></div>
 				<div class="col-sm-6 text-center"><h3><span class="single-target">Target <?php echo $get_single_project['proj_amount']; ?></h3></div>
 			</div>
-			<img class="img-responsive mx-auto d-block" src="<?php echo base_url();?>application/images/web/singleproject/single_project-02.jpg">
+				<img class="d-block w-100" src="<?php print_r($get_single_project_images[0]->fullpath);?>" alt="">
 			<h3><?php echo $get_single_project['proj_name']; ?></h3>
 			<p class="text-justify"><?php echo $get_single_project['story_paragraph1']; ?></p>
-			<img class="img-responsive mx-auto d-block" src="<?php echo base_url();?>application/images/web/singleproject/single_project-03.jpg">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+							<div class="carousel-item active">
+									<img class="d-block w-100" src="<?php print_r($get_single_project_images[0]->fullpath);?>" alt="">
+								</div>
+							<?php foreach (array_slice($get_single_project_images,1) as $proj_images): ?>
+								<div class="carousel-item">
+									<img class="d-block w-100" src="<?=$proj_images->fullpath?>" alt="">
+								</div>
+							<?php endforeach;?>	
+							</div>
+							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
 			<h3><?php echo $get_single_project['proj_name']; ?></h3>
 			<p class="single-italic-line">"<?php echo $get_single_project['proj_desc']; ?>"</p>
 			<p class="text-justify"><?php echo $get_single_project['story_paragraph2']; ?></p>
@@ -19,7 +38,7 @@
 		</div>
 		<div class="col-sm-3 float-left single-sidebar">
 			<div class="col-sm-12 float-left" style="padding:1%;">
-				<img class="img-responsive" src="<?php echo base_url();?>application/images/web/singleproject/single_project-04.jpg">
+			<img class="d-block w-100" src="<?php print_r($get_single_project_images[0]->fullpath);?>" alt="">
 				<div class="single-sidebar-box">
 					<div class="col-sm-8 sec-4-pro-date"><?php echo $get_single_project['start_date']; ?></div>
 					<p class="sec-4-pro-title"><?php echo $get_single_project['proj_name']; ?></p>

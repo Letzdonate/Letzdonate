@@ -33,6 +33,7 @@ class WebCtrl extends CI_Controller
     public function single_project($id= false)
     {
         $data['get_single_project'] = $this->db->get_where('project_details', array('id'=> $id,'status' => 'Active'))->row_array();
+        $data['get_single_project_images'] = $this->db->get_where('proj_img', array('proj_id'=> $id))->result();
         $this->load->view('web/single_project', $data);
         $this->load->view('web/footer');
     }
