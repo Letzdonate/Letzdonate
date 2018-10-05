@@ -13,11 +13,13 @@ class NgoRegCtrl extends CI_Controller
         $this->load->database();
         $this->load->library('form_validation');
         date_default_timezone_set('Asia/Kolkata');
-        $this->load->view('header');
-        if ($this->session->userdata('role_id') == 1) {
-            $this->load->view('slider');
-        } else if ($this->session->userdata('role_id') == 2) {
-            $this->load->view('slider_ngo');
+        if ($this->session->userdata('role_id') == 1 || $this->session->userdata('role_id') == 2) {
+            $this->load->view('header');
+            if ($this->session->userdata('role_id') == 1) {
+                $this->load->view('slider');
+            } else if ($this->session->userdata('role_id') == 2) {
+                $this->load->view('slider_ngo');
+            }
         }
         $this->load->model('NgoModel');
         $this->load->library('encryption');
@@ -60,9 +62,9 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngoreg_insert_update($id = false)
     {
-        if (!$this->session->userdata('username')) {
-            redirect(base_url('admin'));
-        }
+        /* if (!$this->session->userdata('username')) {
+        redirect(base_url());
+        } */
         $this->form_validation->set_message('required', 'The {field} field cannot be empty ');
         $this->form_validation->set_message('valid_email', 'The {field} field is not valid');
         $this->form_validation->set_message('numeric', 'The {field} field must be in number');
@@ -88,7 +90,7 @@ class NgoRegCtrl extends CI_Controller
         $this->form_validation->set_rules('contact_person_phone', 'Contact Person Phone No.', 'required|min_length[10]|max_length[10]|numeric');
         $this->form_validation->set_rules('contact_person_role', 'Contact Person Role', 'required');
         $this->form_validation->set_rules('fblink', 'fb link', 'required');
-        $this->form_validation->set_rules('comments', 'Comments / Questions', 'required');
+      //  $this->form_validation->set_rules('comments', 'Comments / Questions', 'required');
 
         $now = new DateTime();
         //$this->load->library('session');
@@ -118,22 +120,26 @@ class NgoRegCtrl extends CI_Controller
             'comments' => $this->input->post('comments'),
             'kycdoc' => $this->input->post('kycdoc'),
             'kyc_status' => "Pending",
-            'status' => $this->input->post('status'),
             'role_id' => "2", // role_id 2 indicates role of ngo
             'log' => $log,
         );
         if ($id == "") {
             $data['ngo_insert_update']['name'] = $ngo_name;
             $data['ngo_insert_update']['password'] = $pwd;
-        }
-        if($this->session->user_data('role_id')=="1"){
-            $validation_view=$this->load->view('Admin/ngoreg', $data);
-        }
-        else{
-            $validation_view=$this->load->view('web/ngo_register', $data);
-        }
+           }
+       if($this->session->userdata('roleid') == 1){
+        $data['ngo_insert_update']['status'] = $this->input->post('status');
+       }else{
+        $data['ngo_insert_update']['status'] = "Pending";
+       }
         if ($this->form_validation->run() == false) {
-            $validation_view;
+            if ($this->session->userdata('role_id') == "1") {
+                $this->load->view('Admin/ngoreg', $data);
+            } else {
+                $this->load->view('web/header');
+                $this->load->view('web/ngo_register', $data);
+                $this->load->view('web/footer');
+            }
         } else {
             if ($id == "") {
                 $insert_id = $this->NgoModel->ngoinsert($data['ngo_insert_update']);
@@ -144,13 +150,14 @@ class NgoRegCtrl extends CI_Controller
                         $this->mailfunction_notification($ngo_name, $email);
                     }
                     if ($this->input->post('kycdoc') == "upload_doc") {
-                        if($this->session->user_data('role_id')=="1"){
-                        $data['id'] = $insert_id;
-                        $this->load->view('Admin/doc_update', $data);
-                        }
-                        else{
-                        $data['id'] = $insert_id;
-                        $this->load->view('web/uploaddoc', $data);
+                        if ($this->session->userdata('role_id') == "1") {
+                            $data['id'] = $insert_id;
+                            $this->load->view('Admin/doc_update', $data);
+                        } else {
+                            $data['id'] = $insert_id;
+                            $this->load->view('web/header');
+                            $this->load->view('web/uploaddoc', $data);
+                            $this->load->view('web/footer');
                         }
                     }
                 }
@@ -178,17 +185,17 @@ class NgoRegCtrl extends CI_Controller
     }
     public function ngo_doc_view($id)
     {
-        if (!$this->session->userdata('username')) {
+        /* if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
-        }
+        } */
         $data['id'] = $id;
         $this->load->view('Admin/doc_update', $data);
     }
     public function ngo_doc_insert_update()
     {
-        if (!$this->session->userdata('username')) {
+        /* if (!$this->session->userdata('username')) {
             redirect(base_url('admin'));
-        }
+        } */
         $ngoid = $this->input->post('userid');
         $get_ngo_name = $this->db->get_where('user_table', array('id' => $ngoid))->row();
         $pathToUpload = 'upload/' . $get_ngo_name->name;
@@ -418,7 +425,13 @@ class NgoRegCtrl extends CI_Controller
             $doc_status = "Updated";
             $this->NgoModel->ngo_doc_upload_status($doc_status, $ngoid);
         }
-        $this->get_ngo_list();
+        
+        if ($this->session->userdata('role_id') == "1") {
+            $this->get_ngo_list();
+        } else {
+            $this->session->set_flashdata('msg', "1");
+            redirect(base_url());
+        }
         /**
         for delete a file with any extention
         $file_pattern = "profiles/bb-x62.*" // Assuming your files are named like profiles/bb-x62.foo, profiles/bb-x62.bar, etc.

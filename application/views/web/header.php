@@ -53,6 +53,7 @@
       <li class="nav-item">
         <a class="nav-link text-dark"  href="<?php echo base_url('contact');?>">Contact</a>
       </li>
+      <?php if(!$this->session->userdata('role_id')){?>
       <li class="nav-item">
         <a class="nav-link text-dark" href="<?php echo base_url('login');?>" >
 			<button class="btn">Donate Now</button>
@@ -63,10 +64,19 @@
           <button class="btn">New Fundraiser</button>
         </a>
      </li>
+      <?php } else {?>
+        <li class="nav-item">
+        <a class="nav-link text-dark"  href="<?php echo base_url('logout');?>"> 
+          <?php echo $this->session->userdata('firstname'); ?>
+        </a> 
+     </li>
+        <li class="nav-item">
+        <a class="nav-link text-dark"  href="<?php echo base_url('logout');?>"> 
+          Logout 
+        </a> 
+     </li>
+      <?php } ?>
     </ul>
   </div>
 </nav>
 <div><!------------------------------------------------------------------------------container-fluid---->
-</body>
-
-</html>

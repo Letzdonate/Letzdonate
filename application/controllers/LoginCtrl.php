@@ -30,16 +30,18 @@ class LoginCtrl extends CI_Controller
     }
     public function login()
     {
-
         $this->form_validation->set_message('required', 'The {field} field cannot be empty');
         $this->form_validation->set_rules('Username', 'Username', 'required');
         $this->form_validation->set_rules('Password', 'Password', 'required');
         if ($this->form_validation->run() == false) {
-            $this->load->view('header');
-            $this->load->view('user-login');
-
+            if ($this->input->post('web') == "web") {
+                $this->session->set_flashdata('msg', "1");
+                redirect(base_url('login'));
+            } else {
+                $this->load->view('header');
+                $this->load->view('user-login');
+            }
         } else {
-
             $query = $this->db->get_where('user_table', array('email' => $this->input->post('Username'), 'status' => 'Active'));
             $plain_password = '';
             if (($query->num_rows() == 1)) {
@@ -51,6 +53,7 @@ class LoginCtrl extends CI_Controller
                 $this->session->set_userdata('logged_in', 1);
                 $this->session->set_userdata('role_id', $user_session->role_id);
                 $this->session->set_userdata('username', $user_session->name);
+                $this->session->set_userdata('firstname', $user_session->firstname);
                 $this->session->set_userdata('user_id', $user_session->id);
                 $this->session->set_userdata('email', $user_session->email);
                 $this->session->set_userdata('phone', $user_session->phone);
@@ -61,6 +64,8 @@ class LoginCtrl extends CI_Controller
                     $this->load->view('admin/dashboard');
                 } else if ($this->session->userdata('role_id') == "2") { //ngo
                     redirect(base_url('project_list'));
+                } else if ($this->session->userdata('role_id') == "3") { //donor
+                    redirect(base_url('stories'));
                 } else {
                     $this->load->view('header');
                     $this->load->view('slider');
@@ -68,8 +73,13 @@ class LoginCtrl extends CI_Controller
                 }
 
             } else {
+                if ($this->input->post('web') == "web") {
+                    $this->session->set_flashdata('msg', "1");
+                    redirect(base_url('login'));
+                } else {
                 $this->session->set_flashdata('msg', "0");
                 redirect(base_url('admin'), 'refresh');
+                }
             }
         }
     }
@@ -128,6 +138,6 @@ class LoginCtrl extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect(base_url('admin'));
+        redirect(base_url());
     }
 }

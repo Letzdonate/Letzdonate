@@ -1,27 +1,47 @@
 <!---------------------------------------------------------------------------------------banner--------------------------------->
-
+<style>
+	.successalert{
+		position: relative;
+		top: 58px;
+		z-index: 5;
+	}
+	@media screen and (max-device-width: 800px){
+		.successalert{
+		position: relative;
+		top: 58px;
+		z-index: 5;
+	}
+	}
+	</style>
 <div class="container-fluid">
+<?php if ($this->session->flashdata('msg') != null) {?>
+<div class="alert alert-success successalert">
+  <strong>Thanks For Your Interest Towards Us!</strong> Will get back to you shortly.
+</div>
+<?php } ?>
 	<div class="col-sm-12" style="padding:0%!important;">
+	
 		<div id=""  style="z-index:1;" class="carousel slide banner" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item carousel-item-banner active">
-					<img class="d-block w-100 img-responsive img" src="<?php echo base_url();?>application/images/web/homepage/Homepage-03.png" alt="First slide">
+					<img class="d-block w-100 img-responsive img" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-03.png" alt="First slide">
 				</div>
 				<div class="carousel-item carousel-item-banner">
-					<img class="d-block w-100 img-responsive img" src="<?php echo base_url();?>application/images/web/homepage/Homepage-04.png" alt="Second slide">
+					<img class="d-block w-100 img-responsive img" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-04.png" alt="Second slide">
 				</div>
 				<div class="carousel-item carousel-item-banner">
-					<img class="d-block w-100 img-responsive img" src="<?php echo base_url();?>application/images/web/homepage/Homepage-05.png" alt="Second slide">
+					<img class="d-block w-100 img-responsive img" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-05.png" alt="Second slide">
 				</div>
 				<div class="carousel-item carousel-item-banner">
-					<img class="d-block w-100 img-responsive img" src="<?php echo base_url();?>application/images/web/homepage/Homepage-06.png" alt="Second slide">
+					<img class="d-block w-100 img-responsive img" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-06.png" alt="Second slide">
 				</div>
 			</div>
 		</div>
+		
 		<div class="col-sm-12 banner-bg">
 		</div>
-			
-	</div>	
+		
+	</div>
 </div>
 
 <!---------------------------------------------------------------------------------------sec-1--------------------------------->
@@ -34,7 +54,7 @@
 				<div class="col-sm-11 mx-auto d-block">
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -44,7 +64,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -54,7 +74,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -64,7 +84,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -78,7 +98,7 @@
 				<div class="col-sm-11 mx-auto d-block">
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -88,7 +108,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -98,7 +118,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -108,7 +128,7 @@
 					</div>
 					<div class="col-sm-3 float-left em-box">
 						<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-							<img class="img-responsive float-left" src="<?php echo base_url();?>application/images/web/homepage/Homepage-07.jpg">
+							<img class="img-responsive float-left" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-07.jpg">
 							<div class="em-pro-deatils">
 								<div class="project-title">Lorem Color Lorem</div>
 								<div class="category">Education</div>
@@ -169,7 +189,7 @@
 			<div class="col-sm-12 bg-success medical sec-3-im">
 				<h3 class="sec-3-content">Your simple gesture of care may support many LIVES</h3>
 			</div>
-			
+
 			<div class="col-sm-12" style="clear:both;padding:0px;">
 				<div class="col-sm-6 bg-light float-left" style="padding:2.5% 1% 0% 0%;">
 					<div class="col-sm-12 bg-success necessity sec-3-im">
@@ -196,28 +216,28 @@
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-11.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-11.png">
 							<div class="col-sm-8 sec-4-pro-date">Apr 15, 2018</div>
 							<p class="sec-4-pro-title">The girl with Cancer wishes to go home..</p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-12.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-12.png">
 							<div class="col-sm-8 sec-4-pro-date">Mar 11, 2018</div>
 							<p class="sec-4-pro-title">5 Years Old, A Big Hole In her Heart Cannot Eat Or Grow.. </p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-13.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-13.png">
 							<div class="col-sm-8 sec-4-pro-date">Jan 27, 2018</div>
 							<p class="sec-4-pro-title">11-Year-Old boy need Transplant to Beat Cancer..</p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-14.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-14.png">
 							<div class="col-sm-8 sec-4-pro-date">Nov 24, 2017</div>
 							<p class="sec-4-pro-title">Even A Cold Can Kill This 1Year Baby Girl..</p>
 						</div>
@@ -228,28 +248,28 @@
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-11.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-11.png">
 							<div class="col-sm-8 sec-4-pro-date">Apr 15, 2018</div>
 							<p class="sec-4-pro-title">The girl with Cancer wishes to go home..</p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-12.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-12.png">
 							<div class="col-sm-8 sec-4-pro-date">Mar 11, 2018</div>
 							<p class="sec-4-pro-title">5 Years Old, A Big Hole In her Heart Cannot Eat Or Grow.. </p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-13.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-13.png">
 							<div class="col-sm-8 sec-4-pro-date">Jan 27, 2018</div>
 							<p class="sec-4-pro-title">11-Year-Old boy need Transplant to Beat Cancer..</p>
 						</div>
 					</div>
 					<div class="col-sm-3 float-left pad-2">
 						<div class="stories-box">
-							<img class="img-responsive" src="<?php echo base_url();?>application/images/web/homepage/Homepage-14.png">
+							<img class="img-responsive" src="<?php echo base_url(); ?>application/images/web/homepage/Homepage-14.png">
 							<div class="col-sm-8 sec-4-pro-date">Nov 24, 2017</div>
 							<p class="sec-4-pro-title">Even A Cold Can Kill This 1Year Baby Girl..</p>
 						</div>
@@ -309,13 +329,13 @@
 				</div>
 			</div>
 		</div>
-	
-	
+
+
 	</div>
 </div>
-	
+
 <!---------------------------------------------------------------------------------------sec-6--------------------------------->
-	
+
 <section class="pad-3 sec-6">
 	<div class="container" style="pad-3">
 		<div class="col-sm-10 float-left">
@@ -328,3 +348,9 @@
 	</div>
 
 </section>
+<script>
+	$(document).ready(function(){
+        var timeout = 3000; // in miliseconds (3*1000)
+        $('.alert').delay(timeout).fadeOut(300);
+    });
+</script>

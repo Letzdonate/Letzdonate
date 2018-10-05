@@ -14,7 +14,7 @@
     <div class="col s12 z-depth-4 card-panel">
 
 
-	  <?php echo form_open('Login/login_check'); ?>
+	  <?php echo form_open('LoginCtrl/login'); ?>
         <div class="row">
           <div class="input-field col s12 center">
             <img style="width: 276px;background: #00bad2;" src="<?php echo base_url(); ?>application/images/admin/logo.png" alt="LetzDonate" class="responsive-img valign profile-image-login">

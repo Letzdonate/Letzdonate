@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="address">
-				<h6 class="ngo-field-titles"><b>Address</b></h6>
+				<h6 class="ngo-field-titles"><b>Address*</b></h6>
 				<div class="form-group col-sm-6 float-left">
 					<label for="doorno">Door No</label>
 					<input type="text" class="form-control" value = "<?php echo $ngo_insert_update['door']; ?>" name="door" id="doorno" placeholder="Door no / street name">
@@ -78,17 +78,17 @@
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('contact_person_phone'); ?></span>
 				</div>
 				<div class="form-group col-sm-6 float-left">
-					<label for="roleofcontact">Role of Contact Person</label>
+					<label for="roleofcontact">Role of Contact Person*</label>
 					<input type="text"  class="form-control" value = "<?php echo $ngo_insert_update['contact_person_role']; ?>" name="contact_person_role" id="roleofcontact" placeholder="Role of Contact Person">
 					<span style="color: red; clear: both;text-shadow: lime;"><?php echo form_error('contact_person_role'); ?></span>
 				</div>
 			</div>
 			
 			<div class="kyc">
-				<h6 class="ngo-field-titles"><b>Kyc Documents</b></h6>
+				<h6 class="ngo-field-titles"><b>Kyc Documents*</b></h6>
 				<div class="form-check-inline ngo-field-titles">
 					<label class="form-check-label">
-						<input type="radio" id="upload"  class="form-check-input"<?php if ($ngo_insert_update['kycdoc'] == "upload_doc") {
+						<input type="radio" id="upload" checked="checked" class="form-check-input"<?php if ($ngo_insert_update['kycdoc'] == "upload_doc") {
     echo 'checked="checked"';
 }
 ?> value="upload_doc" name="kycdoc">Upload Documents
@@ -113,7 +113,7 @@
 				</div>
 			
 			<div class="socialmedia">
-				<h6 class="ngo-field-titles"><b>Social Media Links</b></h6>
+				<h6 class="ngo-field-titles"><b>Social Media Links*</b></h6>
 				<div class="form-group col-sm-6 float-left">
 					<label for="socialurl">Paste your URL here</label>
 					<input type="text" name="fblink" class="form-control" id="socialurl" placeholder="Social Media Link">
@@ -137,7 +137,7 @@
 				<textarea class="form-control" name="comments" id="comments" placeholder="Comments / Questions" rows="3"></textarea>
 			</div>
 			
-			<button class="ngo-btn mx-auto d-block"><a href="<?php echo base_url('uploaddoc');?>" >Submit</a></button>
+			<button type="submit" class="ngo-btn mx-auto d-block">Submit</button>
 			
 			<?php echo form_close(); ?>
 	</div>
