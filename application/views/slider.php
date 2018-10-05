@@ -16,7 +16,7 @@
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1">iGnovate Solutions</a></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1">Letzdonate</a></h1></li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <!-- <i class="mdi-action-search"></i> -->
@@ -126,9 +126,9 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Category Management</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="a_categ_entry.html">Category Entry</a>
+                                    <li><a href="<?php echo base_url('categentry');?>">Category Entry</a>
                                     </li>
-                                    <li><a href="a_categ_list.html">Category List</a>
+                                    <li><a href="<?php echo base_url('categlist');?>">Category List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -140,11 +140,9 @@
                         <li class="bold active"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-pages"></i> NGO Management</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="a_ngoreg.html">NGO Registeration</a>
+                                    <li><a href="<?php echo base_url('ngoreg');?>">NGO Registeration</a>
                                     </li>
-                                    <li><a href="a_ngoapprove.html">Pending NGO Approval</a>
-                                    </li>
-                                    <li><a href="a_ngolist.html">NGO List</a>
+                                    <li><a href="<?php echo base_url('ngolist');?>">NGO List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -156,11 +154,10 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-av-queue"></i> Project Management</a>
                             <div class="collapsible-body">
                                 <ul>
-                                   <li><a href="a_projectentry.html">Project Entry</a>
+                                   <li><a href="<?php echo base_url('projectentry');?>">Project Entry</a>
                                     </li>
-                                    <li><a href="a_project_approval.html">Pending Approval</a>
-                                    </li>
-                                    <li><a href="a_projectlist.html">Project List</a>
+                                    
+                                    <li><a href="<?php echo base_url('projectlist');?>">Project List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -172,7 +169,7 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> Donor Management</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="a_donorlist.html">Donor List</a>
+                                    <li><a href="<?php echo base_url('donorlist');?>">Donor List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -184,15 +181,15 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-swap-vert-circle"></i> Reports</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="a_transaction.html">Transaction History</a>
+                                    <li><a href="#">Transaction History</a>
                                     </li>
-									<li><a href="a_recurring_subscription.html">Recurring Report</a>
+									<li><a href="#">Recurring Report</a>
                                     </li>
-									<li><a href="a_ngolist.html">NGO Wise Report</a>
+									<li><a href="#">NGO Wise Report</a>
                                     </li>
 									<!-- <li><a href="a_donor_translist.html">Donor Transactions</a>
                                     </li> -->
-									<li><a href="a_settlement.html">Settlement Report</a>
+									<li><a href="#">Settlement Report</a>
                                     </li>
                                 </ul>
                             </div>

@@ -22,10 +22,12 @@
 			</div>
 			<div class="col-sm-12 float-left">
 			<ul class="pro-sidebar-cat pad-0">
-				<a href="#"><li>Education (322)</li></a>
-				<li>Medical (256)</li>
-				<li>Necessity (183)</li>
-				<li>Hunger (412)</li>
+				<?php foreach($proj_category as $categ): ?>
+					<a href="<?php echo base_url('stories/'.$categ->categ_name); ?>">
+						<li><?php echo $categ->categ_name?> (<?=$categ->projectcount?>)</li>
+					</a>
+				<?php endforeach;?>
+				
 			</ul>
 			</div>
 			<div class="col-sm-12 float-left pro-recent">
@@ -33,8 +35,11 @@
 				<hr class="pro-sidebar-recline float-left">
 			</div>
 			<div class="col-sm-12 float-left">
-				<h5>The girl with Cancer wishes to go home..</h5>
-				<p class="sidebar-pro-date">32 days to go</p>
+				<?php foreach($get_recent_project as $recent_project): ?>
+					<a href="<?php echo base_url('single_project/'.$recent_project->id)?>"><h5><?=$recent_project->proj_name?></h5>
+					<p class="sidebar-pro-date"><?=$recent_project->proj_target_date;?></p></a>
+					<hr class="pro-hr">
+				<?php endforeach;?>
 			</div>
 		</div>
 	</div>

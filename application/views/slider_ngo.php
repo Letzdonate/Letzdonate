@@ -121,9 +121,9 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-av-queue"></i> Project Management</a>
                             <div class="collapsible-body">
                                 <ul>
-                                   <li><a href="a_projectentry.html">Project Entry</a>
+                                   <li><a href="<?php echo base_url('projectentry');?>">Project Entry</a>
                                     </li>
-                                    <li><a href="a_projectlist.html">Project List</a>
+                                    <li><a href="<?php echo base_url('projectlist');?>">Project List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -135,11 +135,11 @@
                         <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-swap-vert-circle"></i> Reports</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="a_transaction.html">Transaction History</a>
+                                    <li><a href="#">Transaction History</a>
                                     </li>
-									<li><a href="a_recurring_subscription.html">Recurring Report</a>
+									<li><a href="#">Recurring Report</a>
                                     </li>
-									<li><a href="a_settlement.html">Settlement Report</a>
+									<li><a href="#">Settlement Report</a>
                                     </li>
                                 </ul>
                             </div>

@@ -26,10 +26,19 @@ class WebCtrl extends CI_Controller
         $this->load->view('web/index', $data);
         $this->load->view('web/footer');
     }
-    public function stories()
+    public function stories($categ = false)
     {
-        $query = "SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id GROUP by a.id";
+        if ($categ == "") {
+            $query = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id GROUP by a.id';
+            $query1 = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id and a.status = "Active" GROUP by a.id ORDER BY a.id DESC LIMIT 3';
+        } else {
+            $query = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.proj_category = "' . $categ . '" and a.id = b.proj_id GROUP by a.id';
+            $query1 = 'SELECT a.*, b.fullpath as fullpath FROM project_details as a, proj_img as b where a.id = b.proj_id and a.status = "Active" GROUP by a.id ORDER BY a.id DESC LIMIT 3';
+        }
         $data['get_project_images'] = $this->db->query($query)->result();
+        $query2 = 'SELECT a.*, COUNT(b.id) as projectcount FROM categ_master as a , project_details as b where a.categ_name = b.proj_category GROUP by a.categ_name';
+        $data['proj_category'] = $this->db->query($query2)->result();
+        $data['get_recent_project'] = $this->db->query($query1)->result();
         $this->load->view('web/list_project', $data);
         $this->load->view('web/footer');
     }
@@ -148,5 +157,15 @@ class WebCtrl extends CI_Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+    public function payment($id)
+    {
+        if ($this->session->userdata('logged_in') != 1) {
+            redirect(base_url('login'));
+        } else {
+            $data['get_single_project'] = $this->db->get_where('project_details', array('id' => $id, 'status' => 'Active'))->row_array();
+            $this->load->view('web/payment', $data);
+            $this->load->view('web/footer');
+        }
     }
 }

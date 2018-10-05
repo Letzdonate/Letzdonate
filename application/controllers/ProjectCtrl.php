@@ -29,6 +29,7 @@ class ProjectCtrl extends CI_Controller
         $this->load->view('header');
         $this->load->view('slider');
         $this->load->model('ProjectModel');
+        setlocale(LC_MONETARY, 'en_IN');
         /* if ( ! $this->session->userdata('user_id'))
     {
     redirect(base_url('login'));
@@ -95,7 +96,7 @@ class ProjectCtrl extends CI_Controller
             'story_paragraph2' => $this->input->post('paragraph2'),
             'story_paragraph3' => $this->input->post('paragraph3'),
             'proj_scope' => $scope,
-            'proj_amount' => $this->input->post('proj_amount'),
+            'proj_amount' =>  $this->input->post('proj_amount'),
             'proj_target_date' => $this->input->post('proj_target_date'),
             'ngo' => $this->input->post('ngo'),
             'log' => $log,
@@ -152,7 +153,7 @@ class ProjectCtrl extends CI_Controller
         echo $proj_id;
         $get_proj_name = $this->db->get_where('project_details', array('id' => $proj_id))->row();
 
-         $data = array();
+        $data = array();
         // If file upload form submitted
         if ($this->input->post('action')) {
             if (!empty($_FILES['images']['name'])) {
@@ -188,10 +189,38 @@ class ProjectCtrl extends CI_Controller
                         $uploadData[$i]['filename'] = $fileData['file_name'];
                         $uploadData[$i]['filename_without_ext'] = $filename;
                         $uploadData[$i]['uploaded_on'] = date("Y-m-d H:i:s");
-                        $uploadData[$i]['fullPath'] = base_url($pathToUpload . '/' . $fileData['file_name']);
+                        $uploadData[$i]['fullPath'] = base_url($pathToUpload . '/new/' . $fileData['file_name']);
                         $uploadData[$i]['proj_id'] = $proj_id;
                         $uploadData[$i]['status'] = "Active";
 
+                        $path = 'upload/Project/' . $proj_id . '/Image/new';
+                        if (!file_exists($path)) {
+                            mkdir($path, 0777, true);
+                        }
+                        $config1 = array();
+                        $config1['image_library'] = 'gd2';
+                        $config1["source_image"] = $fileData['full_path'];
+                        $config1['new_image'] = realpath($path);
+                        // Detect target size
+                        /* if (($fileData['image_width'] / $fileData['image_height']) >= (900 / 700)) { */
+
+                            // Resize according to height
+                            $config1['width'] = 900;
+                            $config1['height'] = 700;
+                       /*  } */
+
+                        $this->load->library('image_lib', $config1);
+                        //$this->image_lib->clear();
+
+                        $this->image_lib->initialize($config1);
+                        if (!$this->image_lib->resize()) {
+                            echo $this->image_lib->display_errors();
+                        } else {
+
+                            $file_pattern = $fileData['full_path']; // Assuming your files are named like profiles/bb-x62.foo, profiles/bb-x62.bar, etc.
+                            array_map("unlink", glob($file_pattern));
+
+                        }
                     }
                 }
                 if (!empty($uploadData)) {
@@ -251,7 +280,7 @@ class ProjectCtrl extends CI_Controller
                 }
             }
 
-        } 
+        }
     }
     public function proj_list_view()
     {

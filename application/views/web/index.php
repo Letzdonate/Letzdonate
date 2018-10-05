@@ -12,15 +12,15 @@
 		z-index: 5;
 	}
 	}
-	</style>
+</style>
 <div class="container-fluid">
 <?php if ($this->session->flashdata('msg') != null) {?>
 <div class="alert alert-success successalert">
   <strong>Thanks For Your Interest Towards Us!</strong> Will get back to you shortly.
 </div>
-<?php } ?>
+<?php }?>
 	<div class="col-sm-12" style="padding:0%!important;">
-	
+
 		<div id=""  style="z-index:1;" class="carousel slide banner" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item carousel-item-banner active">
@@ -37,10 +37,10 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-sm-12 banner-bg">
 		</div>
-		
+
 	</div>
 </div>
 
@@ -51,33 +51,37 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="col-sm-11 mx-auto d-block">
-					<?php foreach(array_slice($get_recent_projects,0,3) as $recentproj):?>
-						<div class="col-sm-3 float-left em-box">
-							<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-								<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
-								<div class="em-pro-deatils">
-									<div class="project-title"><?=character_limiter($recentproj->proj_name,10);?></div>
-									<div class="category"><?=$recentproj->proj_category;?></div>
-									<div class="date"><?=$recentproj->start_date;?></div>
+					<?php foreach (array_slice($get_recent_projects, 0, 3) as $recentproj): ?>
+						<a href="<?php echo base_url('single_project/'.$recentproj->id); ?>">
+							<div class="col-sm-3 float-left em-box">
+								<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
+									<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
+									<div class="em-pro-deatils">
+										<div class="project-title"><?=character_limiter($recentproj->proj_name, 10);?></div>
+										<div class="category"><?=$recentproj->proj_category;?></div>
+										<div class="date"><?=$recentproj->start_date;?></div>
+									</div>
 								</div>
-							</div>
-						</div>
+							</div> 
+						</a>
 					<?php endforeach;?>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="col-sm-11 mx-auto d-block">
-					<?php foreach(array_slice($get_recent_projects,4,7) as $recentproj):?>
-						<div class="col-sm-3 float-left em-box">
-							<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
-								<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
-								<div class="em-pro-deatils">
-									<div class="project-title"><?=character_limiter($recentproj->proj_name,10);?></div>
-									<div class="category"><?=$recentproj->proj_category;?></div>
-									<div class="date"><?=$recentproj->start_date;?></div>
+					<?php foreach (array_slice($get_recent_projects, 4, 7) as $recentproj): ?>
+						<a href="<?php echo base_url('single_project/'.$recentproj->id); ?>">
+							<div class="col-sm-3 float-left em-box">
+								<div class="col-sm-12 bg-light mx-auto b-block em-content img-drop">
+									<img class="img-responsive float-left" src="<?=$recentproj->fullpath;?>">
+									<div class="em-pro-deatils">
+										<div class="project-title"><?=character_limiter($recentproj->proj_name, 10);?></div>
+										<div class="category"><?=$recentproj->proj_category;?></div>
+										<div class="date"><?=$recentproj->start_date;?></div>
+									</div>
 								</div>
-							</div>
-						</div>
+							</div> 
+						</a>
 					<?php endforeach;?>
 				</div>
 			</div>
@@ -157,27 +161,31 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
-					<?php foreach(array_slice($get_recent_projects, 0, 4) as $recentproj): ?>
-						<div class="col-sm-3 float-left pad-2">
-							<div class="stories-box">
-								<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
-								<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
-								<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name,15);?></p>
+					<?php foreach (array_slice($get_recent_projects, 0, 4) as $recentproj): ?>
+						<a href="<?php echo base_url('single_project/'.$recentproj->id); ?>">
+							<div class="col-sm-3 float-left pad-2">
+								<div class="stories-box">
+									<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
+									<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
+									<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name, 15);?></p>
+								</div>
 							</div>
-						</div>
+						</a>
 					<?php endforeach;?>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="col-sm-11 mx-auto d-block" style="padding:0%!important;">
-				<?php foreach(array_slice($get_recent_projects, 4, 7) as $recentproj): ?>
-						<div class="col-sm-3 float-left pad-2">
-							<div class="stories-box">
-								<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
-								<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
-								<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name,15);?></p>
+				<?php foreach (array_slice($get_recent_projects, 4, 7) as $recentproj): ?>
+						<a href="<?php echo base_url('single_project/'.$recentproj->id); ?>">
+							<div class="col-sm-3 float-left pad-2">
+								<div class="stories-box">
+									<img class="img-responsive previmage" src="<?=$recentproj->fullpath;?>">
+									<div class="col-sm-8 sec-4-pro-date"><?=$recentproj->start_date;?></div>
+									<p class="sec-4-pro-title"><?=character_limiter($recentproj->proj_name, 15);?></p>
+								</div>
 							</div>
-						</div>
+						</a>
 					<?php endforeach;?>
 				</div>
 			</div>
@@ -248,7 +256,7 @@
 			<p class="text-dark" style="font-size:22px;">A recurring donations platform for your sustainability</p>
 		</div>
 		<div class="col-sm-2 float-left pad-2">
-			<a href="login.html" target="_blank" ><button class="btn btn-web" style="margin-top:0px!important;">Donate Now</button><a>
+			<a href="<?php echo base_url('login');?>" ><button class="btn btn-web" style="margin-top:0px!important;">Donate Now</button><a>
 		</div>
 	</div>
 

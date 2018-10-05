@@ -37,7 +37,7 @@
 			<?php if($get_single_project['story_paragraph3'] != ""){?>
 				<p class="text-justify"><?php echo $get_single_project['story_paragraph3']; ?></p>
 			<?php } ?>
-			<a href="#"><h3>Click Here to Save 11-Year-Old</h3></a>
+			<a href="<?php echo base_url('payment/'. $get_single_project['id'])?>"><h3>Click Here To Donate</h3></a>
 		</div>
 		<div class="col-sm-3 float-left single-sidebar">
 			<div class="col-sm-12 float-left" style="padding:1%;">
@@ -46,7 +46,7 @@
 					<div class="col-sm-8 sec-4-pro-date"><?php echo $get_single_project['start_date']; ?></div>
 					<p class="sec-4-pro-title"><?php echo $get_single_project['proj_name']; ?></p>
 				</div>
-				<button class="btn col-sm-12 single-btn mx-auto d-block" style="margin-top:5%!important;">Save This Cause Donate Now</button><br><br>
+				<a href="<?php echo base_url('payment/'. $get_single_project['id'])?>"><button class="btn col-sm-12 single-btn mx-auto d-block" style="margin-top:5%!important;">Save This Cause Donate Now</button></a><br><br>
 				<h5>Recent stories</h5>
 				<hr class="pro-sidebar-catline float-left">
 				<a href="<?php echo base_url('single_project/'.$get_recent_project['id']); ?>"><img class="img-responsive previmage" src="<?php print_r($get_recent_project['fullpath']);?>">

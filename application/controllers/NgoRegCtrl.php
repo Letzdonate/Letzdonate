@@ -94,7 +94,7 @@ class NgoRegCtrl extends CI_Controller
 
         $now = new DateTime();
         //$this->load->library('session');
-        $userName = "kumaran"; //$this->session->userdata('userName');
+        $userName = $this->session->userdata('userName');
         $log = $userName . "_" . $now->format('Y-m-d H:i:s');
         $data['id'] = $id;
         $ngo_name = $this->input->post('ngo_name');
@@ -197,8 +197,7 @@ class NgoRegCtrl extends CI_Controller
             redirect(base_url('admin'));
         } */
         $ngoid = $this->input->post('userid');
-        $get_ngo_name = $this->db->get_where('user_table', array('id' => $ngoid))->row();
-        $pathToUpload = 'upload/' . $get_ngo_name->name;
+        $pathToUpload = 'upload/Ngo' . $ngoid;
         if (!file_exists($pathToUpload)) {
             mkdir($pathToUpload, 0777, true);
         }

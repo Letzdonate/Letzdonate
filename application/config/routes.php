@@ -64,6 +64,7 @@ $route['categlist'] = 'CategoryCtrl/categ_list';
 $route['projectentry'] = 'ProjectCtrl/project_view';
 $route['projectlist'] = 'ProjectCtrl/proj_list_view';
 $route['stories'] = 'WebCtrl/stories';
+$route['stories/(:any)'] = 'WebCtrl/stories/$1';
 $route['aboutus'] = 'WebCtrl/aboutus';
 $route['contact'] = 'WebCtrl/contact';
 $route['login'] = 'WebCtrl/login';
@@ -72,4 +73,5 @@ $route['donor_register'] = 'WebCtrl/donor_web_register';
 $route['donor_forgotpassword'] = 'WebCtrl/donor_forgotpassword';
 $route['uploaddoc'] = 'WebCtrl/uploaddoc';
 $route['single_project/(:any)'] = 'WebCtrl/single_project/$1';
+$route['payment/(:any)'] = 'WebCtrl/payment/$1';
 /* Custom Redirect */
