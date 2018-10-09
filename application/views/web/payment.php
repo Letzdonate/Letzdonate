@@ -17,20 +17,7 @@
 				<form>
 					<div class="form-check form-check-inline pay-margin">
 					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					  <label class="form-check-label" for="inlineRadio1">Onetime</label>
-					</div>
-					<div class="form-check form-check-inline pay-margin">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">Reccuring</label>
-					</div>
-				</form>
-				</center>
-				
-				<center class="panel-drops">
-				<form>
-					<div class="form-check form-check-inline pay-margin">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					  <label class="form-check-label" for="inlineRadio1">Credit / debit</label>
+					  <label class="form-check-label" for="inlineRadio1">Credit / Debit Card / UPI</label>
 					</div>
 					<div class="form-check form-check-inline pay-margin">
 					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
@@ -38,7 +25,18 @@
 					</div>
 				</form>
 				</center>
-				
+				<center class="panel-drops">
+				<form>
+					<div class="form-check form-check-inline pay-margin">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+					  <label class="form-check-label" for="inlineRadio1">Onetime</label>
+					</div>
+					<div class="form-check form-check-inline pay-margin">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+					  <label class="form-check-label" for="inlineRadio2">Recurring</label>
+					</div>
+				</form>
+				</center>
 				<center class="panel-drops">
 				<form>
 					<div class="form-check form-check-inline pay-margin">
@@ -51,11 +49,7 @@
 					</div>
 					<div class="form-check form-check-inline pay-margin">
 					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">499</label>
-					</div>
-					<div class="form-check form-check-inline pay-margin">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">999</label>
+					  <label class="form-check-label" for="inlineRadio2">599</label>
 					</div>
 					<div class="form-check form-check-inline pay-margin">
 					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
